@@ -1,0 +1,33 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemCrystalQuartz"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWormwood"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemDiamond"
+    },
+    {
+      "item": "minecraft:fire_charge"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "type": "minecraft:item_nbt",
+      "item": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:strength"
+      }
+    }
+  ],
+  "result": {
+    "item": "corvus:oil_enraged"
+  }
+}

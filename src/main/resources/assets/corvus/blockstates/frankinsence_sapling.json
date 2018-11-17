@@ -1,0 +1,19 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/frankinsence_sapling",
+      "all": "corvus:blocks/frankinsence_sapling"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "stage":
+    {
+      "0": { "model": "cross" },
+      "1": { "model": "cross" }
+    }
+  }
+}

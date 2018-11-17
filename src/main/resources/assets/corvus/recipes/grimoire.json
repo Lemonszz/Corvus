@@ -1,0 +1,28 @@
+{
+  "result": {
+    "item": "corvus:grimoire",
+    "count": 1
+  },
+  "pattern": [
+    " Q ",
+    "SBS",
+    " O "
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "Q": {
+      "type": "forge:ore_dict",
+      "ore" : "blockCrystalQuartz"
+    },
+    "S": {
+      "item" : "minecraft:string"
+    },
+    "B":{
+      "item": "minecraft:book"
+    },
+    "O":{
+      "type": "forge:ore_dict",
+      "ore": "oil"
+    }
+  }
+}

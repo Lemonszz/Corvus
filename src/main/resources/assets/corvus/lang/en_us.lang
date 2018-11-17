@@ -1,0 +1,49 @@
+itemGroup.corvus=Corvus
+
+item.corvus.oil_growth.name=Oil of Growth
+item.corvus.oil_enraged.name=Oil of Enraged Spirits
+item.corvus.oil_protective.name=Oil of Protective Winds
+item.corvus.crystal_quartz.name=Crystal Quartz
+item.corvus.grimoire.name=Grimoire
+item.corvus.frankincense_tears.name=Frankincense Tears
+item.corvus.wormwood.name=Wormwood
+item.corvus.lavender.name=Lavender
+item.corvus.lavender_seeds.name=Lavender Seeds
+item.corvus.wormwood_seeds.name=Wormwood Seeds
+
+tile.corvus.crystal_quartz_ore.name=Crystal Quartz Ore
+tile.corvus.candle.name=Candle
+tile.corvus.candle_rage.name=Candle of Enraged Spirits
+tile.corvus.candle_growth.name=Candle of Growth
+tile.corvus.candle_wind.name=Candle of Protective Winds
+tile.corvus.frankinsence_log.name=Frankincense Log
+tile.corvus.frankinsence_leaves.name=Frankincense Leaves
+tile.corvus.frankinsence_sapling.name=Frankincense Sapling
+tile.corvus.frankinsence_planks.name=Frankincense Planks
+tile.corvus.crystal_quartz_block.name=Crystal Quartz Block
+
+entity.Crow.name=Crow
+
+corvus.subtitle.crow_yell=Crow Warns
+corvus.subtitle.crow_caw=Crow Caws
+
+effects.corvusburning_rage.name=Burning Rage
+effects.corvusconsealment.name=Concealment
+effects.corvusprojection.name=Projection
+effects.corvusslow_fall.name=Slow Fall
+effects.corvussoul_forge.name=Soul Forge
+
+spell.leap.name=Corvus Flap
+spell.conceal.name=Conceal
+spell.canis_familiar.name=Canis Familiar
+
+advancements.corvus.awaken.title=Awaken
+advancements.corvus.awaken.description=Perform the awaken ritual
+advancements.corvus.kill_baby_wolf.title=Sacrificial Spirit
+advancements.corvus.kill_baby_wolf.description=Murder a puppy
+advancements.corvus.root.title=Corvus
+advancements.corvus.root.description=Thank you for installing Corvus!
+advancements.corvus.spirit.title=Spirit Wannabe
+advancements.corvus.spirit.description=Become invisible while under the effect of a "Oil of Protective Winds"
+advancements.corvus.tame_crow.title=Corvus Friendus
+advancements.corvus.tame_crow.description=Tame a crow

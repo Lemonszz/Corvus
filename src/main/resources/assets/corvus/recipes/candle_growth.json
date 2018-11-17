@@ -1,0 +1,14 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "item": "corvus:candle"
+    },
+    {
+      "item": "corvus:oil_growth"
+    }
+  ],
+  "result": {
+    "item": "corvus:candle_growth"
+  }
+}

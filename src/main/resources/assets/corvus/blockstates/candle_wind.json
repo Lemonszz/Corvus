@@ -1,0 +1,53 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "corvus:candle",
+    "uvlock": false
+  },
+  "variants": {
+    "normal": [{ "y": 0 }, { "y": 90 }, { "y": 180 }, { "y": 270 }],
+    "on=true":{ "model": "corvus:candle"},
+    "on=false":{ "model": "corvus:candle"},
+    "inventory":
+    {
+      "model": "corvus:candle",
+      "transform": {
+        "gui": {
+          "rotation": [ 30, 225, 0 ],
+          "translation": [ 0, 0.3, 0],
+          "scale":[ 1.5, 1.5, 1.5]
+        },
+        "ground": {
+          "rotation": [ 0, 0, 0 ],
+          "translation": [ 0, 0.1875, 0],
+          "scale":[ 0.8, 0.8, 0.8 ]
+        },
+        "fixed": {
+          "rotation": [ 0, 0, 0 ],
+          "translation": [ 0, 0, 0],
+          "scale":[ 0.5, 0.5, 0.5 ]
+        },
+        "thirdperson_righthand": {
+          "rotation": [ 75, 45, 0 ],
+          "translation": [ 0, 0.15625, 0],
+          "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "thirdperson_lefthand": {
+          "rotation": [ 75, 45, 0 ],
+          "translation": [ 0, 0.15625, 0],
+          "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "firstperson_righthand": {
+          "rotation": [ 0, 45, 0 ],
+          "translation": [ 0, 0.25, 0 ],
+          "scale": [ 0.8, 0.8, 0.8 ]
+        },
+        "firstperson_lefthand": {
+          "rotation": [ 0, 225, 0 ],
+          "translation": [ 0, 0.25, 0 ],
+          "scale": [ 0.8, 0.8, 0.8 ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "result": {
+    "item": "corvus:candle",
+    "count": 1
+  },
+  "pattern": [
+    "CSC",
+    "CSC",
+    "CSC"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "C": {
+      "item" : "minecraft:clay"
+    },
+    "S":{
+      "item": "minecraft:string"
+    }
+  }
+}

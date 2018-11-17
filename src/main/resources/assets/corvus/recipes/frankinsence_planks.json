@@ -1,0 +1,15 @@
+{
+  "result": {
+    "item": "corvus:frankinsence_planks",
+    "count": 4
+  },
+  "pattern": [
+    "X"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "item" : "corvus:frankinsence_log"
+    }
+  }
+}

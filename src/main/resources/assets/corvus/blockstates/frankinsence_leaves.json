@@ -1,0 +1,28 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "corvus:blocks/frankinsence_leaves"
+    },
+    "model": "leaves",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory":
+    {
+      "model": "leaves",
+      "transform": "forge:default-block"
+    },
+    "check_decay":
+    {
+        "true": { "model": "leaves" },
+        "false": { "model": "leaves" }
+    },
+    "decayable":
+    {
+      "true": { "model": "leaves" },
+      "false": { "model": "leaves" }
+    }
+  }
+}

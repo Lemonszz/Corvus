@@ -1,0 +1,12 @@
+{
+  "crow_yell":{
+    "category": "neutral",
+    "subtitle": "corvus.subtitle.crow_yell",
+    "sounds": ["corvus:crow_yell"]
+  },
+  "crow_caw":{
+    "catergory": "neutral",
+    "subtitle": "corvus.subtitle.crow_caw",
+    "sounds": ["corvus:crow_caw"]
+  }
+}

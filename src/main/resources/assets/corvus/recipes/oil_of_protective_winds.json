@@ -1,0 +1,33 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemCrystalQuartz"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "cropWormwood"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemDiamond"
+    },
+    {
+      "item": "corvus:lavender"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "type": "minecraft:item_nbt",
+      "item": "minecraft:potion",
+      "nbt": {
+        "Potion": "minecraft:swiftness"
+      }
+    }
+  ],
+  "result": {
+    "item": "corvus:oil_protective"
+  }
+}
