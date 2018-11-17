@@ -4,6 +4,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.WorldServer;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.capability.crow.CrowCapability;
@@ -22,20 +23,14 @@ public class SpellLeap extends Spell
 	@Override
 	public void performSpell(EntityPlayer player)
 	{
-		double jumpX = player.posX+ 5 * player.getLookVec().x;
-		double jumpZ = player.posZ+ 5 * player.getLookVec().z;
+		Vec3d vec = player.getLookVec();
+		double jumpX = vec.x * 5D;
+		double jumpY = vec.y * 2D;
+		double jumpZ = vec.z * 5D;
 
-		double d0 = jumpX - player.posX;
-		double d1 = jumpZ - player.posZ;
-		float f = MathHelper.sqrt(d0 * d0 + d1 * d1);
-
-		if ((double)f >= 1.0E-4D)
-		{
-			player.motionX += d0 / (double)f * 4D * 0.800000011920929D + player.motionX * 0.20000000298023224D;
-			player.motionZ += d1 / (double)f * 4D * 0.800000011920929D + player.motionZ * 0.20000000298023224D;
-		}
-
-		player.motionY = 0.5F;
+		player.motionX = jumpX;
+		player.motionY = jumpY < 0.4 ? 0.4 : jumpY;
+		player.motionZ = jumpZ;
 		player.velocityChanged = true;
 
 		if(!player.world.isRemote)

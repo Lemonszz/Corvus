@@ -20,7 +20,7 @@ public class CrowContainer implements ICrow
 
 		if(isCrow)
 		{
-			CooldownUtil.setCooldown(player, "crow_cd", 30);
+			CooldownUtil.setCooldown(player, "crow_cd", 130);
 		}
 	}
 }

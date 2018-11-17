@@ -13,6 +13,7 @@ import net.minecraft.entity.ai.*;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -24,14 +25,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.pathfinding.PathNavigate;
 import net.minecraft.pathfinding.PathNavigateFlying;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvent;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
+import party.lemons.corvus.Corvus;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
+import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.init.CorvusItems;
 import party.lemons.corvus.init.CorvusSounds;
 import party.lemons.corvus.init.CorvusSpells;
@@ -145,6 +145,9 @@ public class EntityCrow extends EntityTameable
 			{
 				if (this.rand.nextInt(5) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player))
 				{
+					if(!AdvancementHandler.hasAdvancement((EntityPlayerMP) player, new ResourceLocation(Corvus.MODID, "corvus/awaken")))
+						return true;
+
 					this.setTamedBy(player);
 					this.playTameEffect(true);
 

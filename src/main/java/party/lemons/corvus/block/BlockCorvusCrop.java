@@ -130,30 +130,6 @@ public class BlockCorvusCrop extends BlockBush implements IGrowable, IRequireGro
 		return state.getValue(this.getAgeProperty()).intValue() >= this.getMaxAge();
 	}
 
-	public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
-	{
-		super.updateTick(worldIn, pos, state, rand);
-
-		if(!worldIn.isAreaLoaded(pos, 1))
-			return;
-
-		if(worldIn.getLightFromNeighbors(pos.up()) >= 9)
-		{
-			int i = this.getAge(state);
-
-			if(i < this.getMaxAge())
-			{
-				float f = getGrowthChance(this, worldIn, pos);
-
-				if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt((int) (25.0F / f) + 1) == 0))
-				{
-					worldIn.setBlockState(pos, this.withAge(i + 1), 2);
-					net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
-				}
-			}
-		}
-	}
-
 	public void grow(World worldIn, BlockPos pos, IBlockState state)
 	{
 
@@ -249,14 +225,17 @@ public class BlockCorvusCrop extends BlockBush implements IGrowable, IRequireGro
 	@Override
 	public void growCandle(World worldIn, BlockPos pos, IBlockState state, Random random)
 	{
-		int i = this.getAge(state) + this.getBonemealAgeIncrease(worldIn);
-		int j = this.getMaxAge();
+		int i = this.getAge(state);
 
-		if(i > j)
+		if(i < this.getMaxAge())
 		{
-			i = j;
-		}
+			float f = getGrowthChance(this, worldIn, pos);
 
-		worldIn.setBlockState(pos, this.withAge(i), 2);
+			if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0))
+			{
+				worldIn.setBlockState(pos, this.withAge(i + 1), 2);
+				net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
+			}
+		}
 	}
 }

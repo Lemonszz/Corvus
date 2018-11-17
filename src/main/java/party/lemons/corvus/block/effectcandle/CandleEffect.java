@@ -6,6 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.EntityMob;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -26,6 +27,9 @@ public abstract class CandleEffect
 		@Override
 		public void doEffect(World world, BlockPos pos)
 		{
+			if(world.isRemote)
+				return;
+
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(5);
 
 			List<Entity> entities = world.getEntitiesWithinAABB(EntityMob.class, bb);
@@ -44,6 +48,9 @@ public abstract class CandleEffect
 		@Override
 		public void doEffect(World world, BlockPos pos)
 		{
+			if(world.isRemote)
+				return;
+
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(5);
 
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, bb, e->!(e instanceof EntityMob));
@@ -58,6 +65,9 @@ public abstract class CandleEffect
 
 				IBlockState state = world.getBlockState(growPos);
 				Block block = state.getBlock();
+				if(block == Blocks.TALLGRASS)
+					return;
+
 				if(block instanceof IRequireGrowthCandle && block instanceof IGrowable)
 				{
 					if(((IGrowable) block).canGrow(world, growPos, state, false))
@@ -87,6 +97,9 @@ public abstract class CandleEffect
 		@Override
 		public void doEffect(World world, BlockPos pos)
 		{
+			if(world.isRemote)
+				return;
+
 			AxisAlignedBB bb = new AxisAlignedBB(pos).grow(5);
 			List<EntityMob> entities = world.getEntitiesWithinAABB(EntityMob.class, bb);
 
