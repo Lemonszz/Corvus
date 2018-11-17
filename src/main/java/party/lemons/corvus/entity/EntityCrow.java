@@ -143,7 +143,7 @@ public class EntityCrow extends EntityTameable
 
 			if (!this.world.isRemote)
 			{
-				if (this.rand.nextInt(10) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player))
+				if (this.rand.nextInt(5) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player))
 				{
 					this.setTamedBy(player);
 					this.playTameEffect(true);
@@ -197,7 +197,7 @@ public class EntityCrow extends EntityTameable
 
 	public boolean isBreedingItem(ItemStack stack)
 	{
-		return !stack.isEmpty() && (stack.getItem() instanceof ItemSeeds);
+		return false;
 	}
 
 	public boolean getCanSpawnHere()

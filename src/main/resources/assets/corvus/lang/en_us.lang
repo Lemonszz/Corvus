@@ -28,7 +28,7 @@ corvus.subtitle.crow_yell=Crow Warns
 corvus.subtitle.crow_caw=Crow Caws
 
 effects.corvusburning_rage.name=Burning Rage
-effects.corvusconsealment.name=Concealment
+effects.corvusconcealment.name=Concealment
 effects.corvusprojection.name=Projection
 effects.corvusslow_fall.name=Slow Fall
 effects.corvussoul_forge.name=Soul Forge
@@ -47,3 +47,5 @@ advancements.corvus.spirit.title=Spirit Wannabe
 advancements.corvus.spirit.description=Become invisible while under the effect of a "Oil of Protective Winds"
 advancements.corvus.tame_crow.title=Corvus Friendus
 advancements.corvus.tame_crow.description=Tame a crow
+
+corvus.message.grimoire.fail=You can't seem to open it

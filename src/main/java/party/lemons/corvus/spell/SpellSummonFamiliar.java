@@ -2,10 +2,12 @@ package party.lemons.corvus.spell;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.world.WorldServer;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.capability.crow.CrowCapability;
 import party.lemons.corvus.entity.EntityFamiliar;
+import party.lemons.corvus.init.CorvusSounds;
 
 public class SpellSummonFamiliar extends Spell
 {
@@ -26,6 +28,7 @@ public class SpellSummonFamiliar extends Spell
 			familiar.setLocationAndAngles(player.posX, player.posY, player.posZ, player.rotationYaw, player.rotationPitch);
 
 			player.world.spawnEntity(familiar);
+			player.world.playSound(null, player.getPosition(), CorvusSounds.SUMMON, SoundCategory.PLAYERS, 0.7F, 1F);
 		}
 	}
 

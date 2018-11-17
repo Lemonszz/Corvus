@@ -3,6 +3,7 @@ package party.lemons.corvus.block;
 import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockPlanks;
 import net.minecraft.block.IGrowable;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
@@ -29,7 +30,7 @@ public class BlockCorvusSapling extends BlockBush implements IGrowable, IItemMod
 	{
 		super();
 		this.setDefaultState(this.blockState.getBaseState().withProperty(STAGE, Integer.valueOf(0)));
-
+		this.setSoundType(SoundType.PLANT);
 		TREE_GENERATOR = treeGren;
 	}
 

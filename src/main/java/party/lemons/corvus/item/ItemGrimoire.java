@@ -5,6 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
@@ -19,6 +20,8 @@ public class ItemGrimoire extends ItemModel
 		{
 			if(SpiritUtil.getSpirit(playerIn).getUnlockedSpells().size() > 0)
 				Corvus.PROXY.openGrimoire();
+			else
+				playerIn.sendStatusMessage(new TextComponentTranslation("corvus.message.grimoire.fail"), true);
 		}
 
 		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);

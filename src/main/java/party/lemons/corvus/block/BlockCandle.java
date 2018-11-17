@@ -9,6 +9,7 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.*;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -60,7 +61,10 @@ public class BlockCandle extends Block implements IItemModel
 				}
 
 				if(!didRitual)
+				{
 					worldIn.setBlockState(pos, state.withProperty(ON, true));
+					worldIn.playSound(null, pos, SoundEvents.ITEM_FLINTANDSTEEL_USE, SoundCategory.BLOCKS, 1.0F,  worldIn.rand.nextFloat() * 0.4F + 0.8F);
+				}
 				else
 				{
 					((WorldServer)worldIn).spawnParticle(EnumParticleTypes.SMOKE_NORMAL, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, 100, 2F, 0, 2F, 0);
@@ -85,6 +89,7 @@ public class BlockCandle extends Block implements IItemModel
 			if(state.getValue(ON))
 			{
 				worldIn.setBlockState(pos, state.withProperty(ON, false));
+				worldIn.playSound(null, pos, SoundEvents.BLOCK_CLOTH_HIT, SoundCategory.BLOCKS, 1.0F,  worldIn.rand.nextFloat() * 0.4F + 0.8F);
 			}
 		}
 		return true;

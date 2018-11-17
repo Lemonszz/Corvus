@@ -5,8 +5,52 @@
     "sounds": ["corvus:crow_yell"]
   },
   "crow_caw":{
-    "catergory": "neutral",
+    "category": "neutral",
     "subtitle": "corvus.subtitle.crow_caw",
     "sounds": ["corvus:crow_caw"]
+  },
+  "wind":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/wind_1",
+                "corvus:licenced/wind_2",
+                "corvus:licenced/wind_3",
+                "corvus:licenced/wind_4"
+    ]
+  },
+  "summon":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/summon"
+    ]
+  },
+  "conceal":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/conceal_1",
+      "corvus:licenced/conceal_2",
+      "corvus:licenced/conceal_3",
+      "corvus:licenced/conceal_4"
+    ]
+  },
+  "conceal_end":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/conceal_end"
+    ]
+  },
+  "ritual":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/ritual_1",
+      "corvus:licenced/ritual_2",
+      "corvus:licenced/ritual_3",
+      "corvus:licenced/ritual_4"
+    ]
+  },
+  "spell_fail":{
+    "category": "player",
+    "sounds": [ "corvus:licenced/spell_fail_1",
+      "corvus:licenced/spell_fail_2"
+    ]
+  },
+  "open_grimoire":{
+    "category": "player",
+    "sounds":[ "corvus:licenced/open_grimoire_1", "corvus:licenced/open_grimoire_2"]
   }
 }

@@ -3,12 +3,14 @@ package party.lemons.corvus.ritual;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import party.lemons.corvus.capability.crow.CrowCapability;
+import party.lemons.corvus.init.CorvusSounds;
 import party.lemons.corvus.spell.SpellLeap;
 
 import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 		if(removeItems(world, pos))
 		{
 			perform(world, pos, player);
+			world.playSound(null, pos, CorvusSounds.RITUAL, SoundCategory.BLOCKS, 2F, 1F);
 			return true;
 		}
 

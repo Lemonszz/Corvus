@@ -44,6 +44,7 @@ public class SpellLeap extends Spell
 			CrowCapability.sync(player);
 			CrowCapability.spawnParticles((WorldServer) player.world, player, 70, 0.5F);
 			player.world.playSound(null, player.getPosition(), CorvusSounds.CROW_CAW, SoundCategory.PLAYERS, 2F, 1F);
+			player.world.playSound(null, player.getPosition(), CorvusSounds.WIND, SoundCategory.PLAYERS, 2F, 1F);
 		}
 	}
 
