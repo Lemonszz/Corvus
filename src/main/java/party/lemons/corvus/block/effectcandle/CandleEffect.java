@@ -56,30 +56,31 @@ public abstract class CandleEffect
 			List<EntityLivingBase> entities = world.getEntitiesWithinAABB(EntityLivingBase.class, bb, e->!(e instanceof EntityMob));
 			entities.forEach(e->e.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 0, true, false)));
 
-			if(world.rand.nextInt(1) == 0)
+			for(int i = 0; i < 10; i++)
 			{
-				int x = (int) (world.rand.nextInt((int) ((bb.maxX - bb.minX) + 1)) + bb.minX);
-				int y = (int) (world.rand.nextInt((int) ((bb.maxY - bb.minY) + 1)) + bb.minY);
-				int z = (int) (world.rand.nextInt((int) ((bb.maxZ - bb.minZ) + 1)) + bb.minZ);
-				BlockPos growPos = new BlockPos(x, y, z);
-
-				IBlockState state = world.getBlockState(growPos);
-				Block block = state.getBlock();
-				if(block == Blocks.TALLGRASS)
-					return;
-
-				if(block instanceof IRequireGrowthCandle && block instanceof IGrowable)
+				if(world.rand.nextInt(1) == 0)
 				{
-					if(((IGrowable) block).canGrow(world, growPos, state, false))
+					int x = (int) (world.rand.nextInt((int) ((bb.maxX - bb.minX) + 1)) + bb.minX);
+					int y = (int) (world.rand.nextInt((int) ((bb.maxY - bb.minY) + 1)) + bb.minY);
+					int z = (int) (world.rand.nextInt((int) ((bb.maxZ - bb.minZ) + 1)) + bb.minZ);
+					BlockPos growPos = new BlockPos(x, y, z);
+
+					IBlockState state = world.getBlockState(growPos);
+					Block block = state.getBlock();
+					if(block == Blocks.TALLGRASS) return;
+
+					if(block instanceof IRequireGrowthCandle && block instanceof IGrowable)
 					{
-						((IRequireGrowthCandle) block).growCandle(world, growPos, state, world.rand);
-					}
-				}
-				else if(block instanceof IGrowable)
-				{
-					if(((IGrowable) block).canGrow(world, growPos, state, false))
+						if(((IGrowable) block).canGrow(world, growPos, state, false))
+						{
+							((IRequireGrowthCandle) block).growCandle(world, growPos, state, world.rand);
+						}
+					}else if(block instanceof IGrowable)
 					{
-						((IGrowable) block).grow(world, world.rand, growPos, state);
+						if(((IGrowable) block).canGrow(world, growPos, state, false))
+						{
+							((IGrowable) block).grow(world, world.rand, growPos, state);
+						}
 					}
 				}
 			}

@@ -49,3 +49,8 @@ advancements.corvus.tame_crow.title=Corvus Friendus
 advancements.corvus.tame_crow.description=Tame a crow
 
 corvus.message.grimoire.fail=You can't seem to open it
+
+corvus.jei.rituals=Rituals
+corvus:awaken.name=Awaken
+corvus:soul_forge.name=Soul Forge
+corvus:project.name=Astral Projection

@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "0.0.3"
+version = "0.0.4"
 group = "party.lemons"
 archivesBaseName = "corvus"
 
@@ -29,10 +29,21 @@ minecraft {
 
 repositories {
     maven { url 'http://lemons.party/maven' }
+    maven {
+        // location of the maven that hosts JEI files
+        name = "Progwml6 maven"
+        url = "http://dvs1.progwml6.com/files/maven"
+    }
+    maven {
+        // location of a maven mirror for JEI files, as a fallback
+        name = "ModMaven"
+        url = "modmaven.k-4u.nl"
+    }
 }
 
 dependencies {
     deobfProvided "party.lemons.lemonlib:lemonlib-1.12.2:1.2.0"
+    deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
 }
 
 processResources {

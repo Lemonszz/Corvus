@@ -17,7 +17,6 @@ public class CorvusTab extends CreativeTabs
 	public CorvusTab()
 	{
 		super(Corvus.MODID);
-		setBackgroundImageName("item_search.png");
 	}
 
 	@Override

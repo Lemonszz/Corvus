@@ -5,6 +5,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -30,17 +31,17 @@ public class EntityFamiliar extends EntityCreature
 	{
 		this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(4, new EntityAILeapAtTarget(this, 0.2F));
-		this.tasks.addTask(5, new EntityAIAttackMelee(this, 1.2D, true));
+		this.tasks.addTask(5, new EntityAIAttackMelee(this, 0.8D, true));
 		this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(10, new EntityAILookIdle(this));
 		this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
-		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityMob.class, false));
+		this.targetTasks.addTask(5, new EntityAINearestAttackableTarget(this, EntityMob.class, 10, false, false, e->!(e instanceof EntityCreeper)));
 	}
 
 	protected void applyEntityAttributes()
 	{
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.9D);
+		this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.5D);
 		this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(20D);
 		this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
 	}

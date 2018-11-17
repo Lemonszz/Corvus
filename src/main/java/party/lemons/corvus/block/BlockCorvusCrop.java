@@ -92,7 +92,7 @@ public class BlockCorvusCrop extends BlockBush implements IGrowable, IRequireGro
 			}
 		}
 
-		return f;
+		return f * 2;
 	}
 
 	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos)
@@ -229,9 +229,7 @@ public class BlockCorvusCrop extends BlockBush implements IGrowable, IRequireGro
 
 		if(i < this.getMaxAge())
 		{
-			float f = getGrowthChance(this, worldIn, pos);
-
-			if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, random.nextInt((int) (25.0F / f) + 1) == 0))
+			if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true))
 			{
 				worldIn.setBlockState(pos, this.withAge(i + 1), 2);
 				net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));

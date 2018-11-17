@@ -45,9 +45,14 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 
 	}
 
+	public boolean isEmpty()
+	{
+		return ingredients.length == 0;
+	}
+
 	public boolean removeItems(World world, BlockPos pos)
 	{
-		if(ingredients.length == 0)
+		if(isEmpty())
 			return false;
 
 		AxisAlignedBB bb = new AxisAlignedBB(pos).grow(4D);
@@ -87,5 +92,15 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 		}
 
 		return false;
+	}
+
+	public Ingredient[] getIngredients()
+	{
+		return ingredients;
+	}
+
+	public String getTranslationKey()
+	{
+		return getRegistryName() + ".name";
 	}
 }
