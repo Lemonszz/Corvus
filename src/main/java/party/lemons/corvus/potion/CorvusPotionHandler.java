@@ -9,7 +9,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
-import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
@@ -31,6 +30,7 @@ public class CorvusPotionHandler
 				{
 					double amt = 0.5D + (0.1D * effectSlowFall.getAmplifier());
 					event.player.motionY *= amt;
+					event.player.fallDistance = 0;
 				}
 			}
 
@@ -43,6 +43,7 @@ public class CorvusPotionHandler
 				event.player.capabilities.disableDamage = true;
 				event.player.resetActiveHand();
 				event.player.sendPlayerAbilities();
+				event.player.fallDistance = 0;
 			}
 
 		}

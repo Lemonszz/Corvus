@@ -2,6 +2,7 @@ package party.lemons.corvus.init;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -14,6 +15,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerLoggedInEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent.PlayerRespawnEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import party.lemons.corvus.Corvus;
@@ -26,6 +28,8 @@ import party.lemons.corvus.capability.projection.ProjectionCapability;
 import party.lemons.corvus.capability.projection.ProjectionCapabilityProvider;
 import party.lemons.corvus.capability.projection.ProjectionContainer;
 import party.lemons.corvus.capability.spirit.*;
+import party.lemons.corvus.handler.AdvancementHandler;
+import party.lemons.corvus.network.MessageSyncAwakened;
 import party.lemons.lemonlib.event.InitEvent;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
@@ -55,15 +59,18 @@ public class CorvusCapabilities
 	{
 		if(event.getEntity() instanceof EntityPlayer)
 		{
-			SpiritUtil.syncSpirit((EntityPlayer) event.getEntity());
+			EntityPlayer player = (EntityPlayer) event.getEntity();
+
+			SpiritUtil.syncSpirit(player);
+
+			if(player instanceof EntityPlayerMP)
+				CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(SpiritUtil.getSpirit(player).isAwakened()), (EntityPlayerMP) player);
 		}
 	}
 
 	@SubscribeEvent
 	public static void onPlayerClone(PlayerEvent.Clone event)
 	{
-		System.out.println("clone");
-
 		SpiritContainer container = (SpiritContainer) SpiritUtil.getSpirit(event.getOriginal());
 		NBTTagCompound tags = (NBTTagCompound) SpiritCapability.CAPABILITY.writeNBT(container, null);
 
@@ -71,6 +78,40 @@ public class CorvusCapabilities
 		SpiritCapability.CAPABILITY.readNBT(containerNew, null, tags);
 
 		SpiritUtil.syncSpirit(event.getEntityPlayer());
+		if(event.getEntityPlayer() instanceof EntityPlayerMP)
+		{
+			CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(
+					AdvancementHandler.hasAdvancement(
+							(EntityPlayerMP) event.getEntityPlayer(),
+							new ResourceLocation(Corvus.MODID, "corvus/awaken"))),
+					(EntityPlayerMP) event.getEntityPlayer());
+		}
+	}
+
+	@SubscribeEvent
+	public static void onPlayerRespawn(PlayerRespawnEvent event)
+	{
+		if(event.player instanceof EntityPlayerMP)
+		{
+			CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(
+							AdvancementHandler.hasAdvancement(
+									(EntityPlayerMP) event.player,
+									new ResourceLocation(Corvus.MODID, "corvus/awaken"))),
+					(EntityPlayerMP) event.player);
+		}
+	}
+
+	@SubscribeEvent
+	public static void onPlayerLoggedIn(PlayerLoggedInEvent event)
+	{
+		if(event.player instanceof EntityPlayerMP)
+		{
+			CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(
+							AdvancementHandler.hasAdvancement(
+									(EntityPlayerMP) event.player,
+									new ResourceLocation(Corvus.MODID, "corvus/awaken"))),
+					(EntityPlayerMP) event.player);
+		}
 	}
 
 	@SubscribeEvent

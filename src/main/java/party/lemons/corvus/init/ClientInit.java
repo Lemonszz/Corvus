@@ -12,8 +12,10 @@ import party.lemons.corvus.Corvus;
 import party.lemons.corvus.block.effectcandle.BlockEffectCandle;
 import party.lemons.corvus.entity.EntityCrow;
 import party.lemons.corvus.entity.EntityFamiliar;
+import party.lemons.corvus.entity.EntityWendigo;
 import party.lemons.corvus.entity.render.RenderCrow;
 import party.lemons.corvus.entity.render.RenderFamiliar;
+import party.lemons.corvus.entity.render.RenderWendigo;
 import party.lemons.lemonlib.event.InitEvent;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID, value = Side.CLIENT)
@@ -26,6 +28,7 @@ public class ClientInit
 	{
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrow.class, RenderCrow::new);
 		RenderingRegistry.registerEntityRenderingHandler(EntityFamiliar.class, RenderFamiliar::new);
+		RenderingRegistry.registerEntityRenderingHandler(EntityWendigo.class, RenderWendigo::new);
 
 		ClientRegistry.registerKeyBinding(KEY_SPELL);
 	}

@@ -28,6 +28,7 @@ public class CorvusItems
 	public static final Item WORMWOOD_SEEDS = Items.AIR;
 	public static final Item OIL_GROWTH = Items.AIR;
 	public static final Item OIL_PROTECTIVE = Items.AIR;
+	public static final Item CURSED_BONE = Items.AIR;
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
@@ -48,5 +49,8 @@ public class CorvusItems
 
 		ItemRegistry.registerItem(new ItemCorvusSeed(()->CorvusBlocks.LAVENDER.getDefaultState(), EnumPlantType.Crop), "lavender_seeds");
 		ItemRegistry.registerItem(new ItemCorvusSeed(()->CorvusBlocks.WORMWOOD.getDefaultState(), EnumPlantType.Crop), "wormwood_seeds");
+
+		ItemRegistry.registerItem(new ItemCursedBone(), "cursed_bone", "bone");
+
 	}
 }

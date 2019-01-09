@@ -1,6 +1,5 @@
 package party.lemons.corvus.ritual;
 
-import net.minecraft.advancements.Advancement;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
@@ -22,6 +21,7 @@ public class RitualAwaken extends Ritual
 	{
 		AdvancementHandler.unlockAdvancement(player, new ResourceLocation(Corvus.MODID, "corvus/awaken"));
 
+		SpiritUtil.getSpirit(player).setAwakened(true);
 		SpiritUtil.syncSpirit(player);
 	}
 }

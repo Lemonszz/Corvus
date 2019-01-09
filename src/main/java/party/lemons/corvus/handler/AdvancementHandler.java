@@ -15,8 +15,11 @@ import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.capability.spirit.ISpirit;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
+import party.lemons.corvus.init.CorvusNetwork;
 import party.lemons.corvus.init.CorvusSpells;
+import party.lemons.corvus.network.MessageSyncAwakened;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
 public class AdvancementHandler
@@ -63,9 +66,21 @@ public class AdvancementHandler
 	@SubscribeEvent
 	public static void onAdvancementUnlock(AdvancementEvent event)
 	{
+		EntityPlayer player = event.getEntityPlayer();
+
 		if(event.getAdvancement().getId().toString().equals("corvus:corvus/spirit"))
 		{
-			SpiritUtil.unlockSpell(event.getEntityPlayer(), CorvusSpells.CONCEAL);
+			SpiritUtil.unlockSpell(player, CorvusSpells.CONCEAL);
+		}
+
+		if(!event.getEntityPlayer().world.isRemote && event.getAdvancement().getId().toString().equals("corvus:corvus/awaken"))
+		{
+				if(player instanceof EntityPlayerMP)
+				{
+					ISpirit spirit = SpiritUtil.getSpirit(player);
+					spirit.setAwakened(true);
+					CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(true), (EntityPlayerMP) player);
+				}
 		}
 	}
 

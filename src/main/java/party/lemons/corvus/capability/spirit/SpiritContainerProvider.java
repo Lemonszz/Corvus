@@ -46,6 +46,7 @@ public class SpiritContainerProvider implements INBTSerializable<NBTTagCompound>
 		NBTTagCompound tags = new NBTTagCompound();
 		tags.setInteger("spirit", container.getSpirit());
 		tags.setInteger("max_spirit", container.getMaxSprit());
+		tags.setBoolean("awakened", container.isAwakened());
 
 		NBTTagList spells = new NBTTagList();
 		for(Spell spell : container.getUnlockedSpells())
@@ -66,6 +67,7 @@ public class SpiritContainerProvider implements INBTSerializable<NBTTagCompound>
 	{
 		container.setSpiritMax(nbt.getInteger("max_spirit"));
 		container.setSprit(nbt.getInteger("spirit"));
+		container.setAwakened(nbt.getBoolean("awakened"));
 
 		NBTTagList list = nbt.getTagList("spells", Constants.NBT.TAG_STRING);
 		for(int i = 0; i < list.tagCount(); i++)

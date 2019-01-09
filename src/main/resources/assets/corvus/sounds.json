@@ -52,5 +52,33 @@
   "open_grimoire":{
     "category": "player",
     "sounds":[ "corvus:licenced/open_grimoire_1", "corvus:licenced/open_grimoire_2"]
+  },
+  "wendigo_step":{
+    "category": "hostile",
+    "sounds":[
+      "corvus:licenced/wendigo_step_1",
+      "corvus:licenced/wendigo_step_2",
+      "corvus:licenced/wendigo_step_3",
+      "corvus:licenced/wendigo_step_4"
+    ]
+  },
+  "wendigo":{
+    "category": "hostile",
+    "sounds":[
+      "corvus:licenced/wendigo_roar_1",
+      "corvus:licenced/wendigo_roar_2"
+    ]
+  },
+  "wendigo_hurt":{
+    "category": "hostile",
+    "sounds":[
+      "corvus:licenced/wendigo_hurt"
+    ]
+  },
+  "wendigo_attack":{
+    "category": "hostile",
+    "sounds":[
+      "corvus:licenced/wendigo_attack"
+    ]
   }
 }

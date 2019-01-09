@@ -104,7 +104,7 @@ public class EntityCrow extends EntityTameable
 	{
 		if (!entity.isSilent() && world.rand.nextInt(50) == 0)
 		{
-			List<EntityLiving> list = world.getEntitiesWithinAABB(EntityLiving.class, entity.getEntityBoundingBox().grow(15), e->e instanceof EntityMob);
+			List<EntityLiving> list = world.getEntitiesWithinAABB(EntityLiving.class, entity.getEntityBoundingBox().grow(15), e->e instanceof EntityWendigo);
 
 			if (!list.isEmpty())
 			{

@@ -10,12 +10,25 @@ public class SpiritContainer implements ISpirit
 	private int spirit, maxSpirit;
 	private List<Spell> spellList;
 	private Spell activeSpell;
+	private boolean awakened = false;
 
 	public SpiritContainer()
 	{
 		maxSpirit = 100;
 		spirit = maxSpirit;
 		spellList = new ArrayList<>();
+	}
+
+	@Override
+	public boolean isAwakened()
+	{
+		return awakened;
+	}
+
+	@Override
+	public boolean setAwakened(boolean awake)
+	{
+		return awakened = awake;
 	}
 
 	@Override

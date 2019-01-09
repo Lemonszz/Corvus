@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface ISpirit
 {
+	boolean isAwakened();
+	boolean setAwakened(boolean awake);
 	int getSpirit();
 	int getMaxSprit();
 
