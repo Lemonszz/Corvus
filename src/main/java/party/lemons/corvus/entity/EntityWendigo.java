@@ -26,6 +26,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.items.ItemStackHandler;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.handler.AdvancementHandler;
+import party.lemons.corvus.init.CorvusItems;
 import party.lemons.corvus.init.CorvusSounds;
 
 import javax.annotation.Nullable;
@@ -103,8 +104,8 @@ public class EntityWendigo extends EntityMob
 		if(cause.getTrueSource() != null && cause.getTrueSource() instanceof EntityPlayer)
 		{
 			entityDropItem(new ItemStack(Items.LEATHER, rand.nextInt(4)), 0);
-			if(rand.nextInt(100) < 6)
-				entityDropItem(new ItemStack(Items.LEATHER, rand.nextInt(4)), 0);
+			if(rand.nextInt(50) < 6)
+				entityDropItem(new ItemStack(CorvusItems.CURSED_BONE, rand.nextInt(4)), 0);
 
 		}
 

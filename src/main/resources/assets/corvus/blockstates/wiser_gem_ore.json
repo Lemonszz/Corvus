@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "all": "corvus:blocks/ore_wiser_gem"
+    },
+    "model": "cube_all",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory":
+    {
+      "model": "cube_all",
+      "transform": "forge:default-block"
+    }
+  }
+}

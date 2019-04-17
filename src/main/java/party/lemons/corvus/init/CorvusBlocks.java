@@ -1,7 +1,6 @@
 package party.lemons.corvus.init;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -24,12 +23,12 @@ import party.lemons.lemonlib.block.BlockRegistry;
 public class CorvusBlocks
 {
 	public static final Block CRYSTAL_QUARTZ_ORE = Blocks.AIR;
+	public static final Block WISER_GEM_ORE = Blocks.AIR;
 
 	public static final Block CANDLE = Blocks.AIR;
 	public static final Block CANDLE_GROWTH = Blocks.AIR;
 	public static final Block CANDLE_RAGE = Blocks.AIR;
 	public static final Block CANDLE_WIND = Blocks.AIR;
-
 
 	public static final Block FRANKINSENCE_LOG = Blocks.AIR;
 	public static final Block FRANKINSENCE_LEAVES = Blocks.AIR;
@@ -37,6 +36,8 @@ public class CorvusBlocks
 
 	public static final Block WORMWOOD = Blocks.AIR;
 	public static final Block LAVENDER = Blocks.AIR;
+	public static final Block BLAZING_TULIP = Blocks.AIR;
+	public static final Block LILY_TOXIC = Blocks.AIR;
 
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
@@ -49,6 +50,7 @@ public class CorvusBlocks
 		BlockRegistry.registerBlock(BlockRegistry.setProperties(new BlockEffectCandle(new CandleEffect.EffectWind()), 0.3F, 0.25F, 0F), "candle_wind");
 
 		BlockRegistry.registerBlock(BlockRegistry.setProperties(new BlockCorvusOre(1, 2, ()->CorvusItems.CRYSTAL_QUARTZ), 3F, 5F, 0F), "crystal_quartz_ore", "oreCrystalQuartz");
+		BlockRegistry.registerBlock(BlockRegistry.setProperties(new BlockCorvusOre(2, 2, ()->CorvusItems.WISER_GEM), 3F, 5F, 0F), "wiser_gem_ore", "oreWiserGem");
 		BlockRegistry.registerBlock(new BlockCorvusLog(), "frankinsence_log", "logWood");
 		BlockRegistry.registerBlock(new BlockCorvusLeaves(()->Item.getItemFromBlock(FRANKINSENCE_SAPLING), ()->CorvusItems.FRANKINCENSE_TEARS), "frankinsence_leaves", "treeLeaves");
 		BlockRegistry.registerBlock(new BlockCorvusSapling(new FeatureFrankincenseTree(true)), "frankinsence_sapling", "treeSapling");
@@ -58,7 +60,11 @@ public class CorvusBlocks
 		BlockRegistry.registerBlock(new BlockCorvusCrop(()->CorvusItems.WORMWOOD, ()->CorvusItems.WORMWOOD_SEEDS), "wormwood", "flower");
 
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "crystal_quartz_block", "blockCrystalQuartz");
+		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "wiser_gem_block", "blockWiserGem");
 
 		GameRegistry.registerTileEntity(TileEntityEffectCandle.class, new ResourceLocation(Corvus.MODID, "candle"));
+
+		BlockRegistry.registerBlock(new BlockLilyToxic(), "lily_toxic", "flower", "lily");
+		BlockRegistry.registerBlock(new BlockBlazingTulip(), "blazing_tulip", "flower", "tulip");
 	}
 }

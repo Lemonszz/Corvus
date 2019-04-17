@@ -25,6 +25,9 @@ public class CorvusOreGen
 	private static final WorldGenerator CRYSTAL_QUARTZ_GENERATOR_GAIA =
 			new FeatureDimension(new FeatureRange(new FeatureVein(b ->CorvusBlocks.CRYSTAL_QUARTZ_ORE.getDefaultState(), 10), 2, 0, 48), GaiaDimension.GAIA_ID);
 
+	private static final WorldGenerator WISER_GEM_GENERATOR_GAIA =
+			new FeatureDimension(new FeatureRange(new FeatureVein(b ->CorvusBlocks.WISER_GEM_ORE.getDefaultState(), 10), 2, 0, 48), GaiaDimension.GAIA_ID);
+
 	@SubscribeEvent
 	public static void onPopulateChunk(PopulateChunkEvent.Pre event)
 	{
@@ -34,5 +37,6 @@ public class CorvusOreGen
 
 		CRYSTAL_QUARTZ_GENERATOR.generate(world, rand, pos);
 		CRYSTAL_QUARTZ_GENERATOR_GAIA.generate(world, rand, pos);
+		WISER_GEM_GENERATOR_GAIA.generate(world, rand, pos);
 	}
 }

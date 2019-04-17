@@ -36,6 +36,4 @@ public class CorvusEntities
 
 		event.getRegistry().registerAll(EntityEntryBuilder.create().entity(EntityWendigo.class).name("Wendigo").spawn(EnumCreatureType.MONSTER, 10, 1, 1,  wendigoBiomes).id(new ResourceLocation(Corvus.MODID, "wendigo"), ID++).tracker(80, 1, true).egg(0x50463b, 0x503d3b).build());
 	}
-
-
 }

@@ -1,0 +1,18 @@
+{
+  "result": {
+    "item": "corvus:wiser_gem_block",
+    "count": 1
+  },
+  "pattern": [
+    "XXX",
+    "XXX",
+    "XXX"
+  ],
+  "type": "forge:ore_shaped",
+  "key": {
+    "X": {
+      "type": "forge:ore_dict",
+      "ore" : "gemWiser"
+    }
+  }
+}

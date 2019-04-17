@@ -4,6 +4,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -31,18 +32,19 @@ public class AttunedEffectHandler
 
 			if(state.getBlock() == CorvusBlocks.CRYSTAL_QUARTZ_ORE)
 			{
-
+				transformBlock(world, pos, player, CorvusBlocks.WISER_GEM_ORE.getDefaultState());
 			}
 			else if(state.getBlock() == Blocks.IRON_ORE)
 			{
-				transformBlock(world, pos, Blocks.GOLD_ORE.getDefaultState());
-				player.swingArm(event.getHand());
+				transformBlock(world, pos, player, Blocks.GOLD_ORE.getDefaultState());
 			}
 		}
 	}
 
-	private static void transformBlock(World world, BlockPos pos, IBlockState to)
+	private static void transformBlock(World world, BlockPos pos, EntityPlayer player, IBlockState to)
 	{
+		player.swingArm(EnumHand.MAIN_HAND);
+
 		if(world.isRemote)
 			return;
 

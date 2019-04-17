@@ -29,6 +29,7 @@ public class CorvusItems
 	public static final Item OIL_PROTECTIVE = Items.AIR;
 	public static final Item CURSED_BONE = Items.AIR;
 	public static final Item SPECIAL_STICK = Items.AIR;
+	public static final Item WISER_GEM = Items.AIR;
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
@@ -58,6 +59,7 @@ public class CorvusItems
 		}), "oil_attuned", "oil");
 
 		ItemRegistry.registerItem(new ItemModel(), "crystal_quartz", "gemCrystalQuartz");
+		ItemRegistry.registerItem(new ItemModel(), "wiser_gem", "gemWiser");
 
 		ItemRegistry.registerItem(new ItemSpiritFood(2, 0.25F, 10, false), "frankincense_tears");
 		ItemRegistry.registerItem(new ItemSpiritFood(2, 0.25F, 10, false), "wormwood", "cropWormwood");

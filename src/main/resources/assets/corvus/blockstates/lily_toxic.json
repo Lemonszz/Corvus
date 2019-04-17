@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/toxic_lily",
+      "all": "corvus:blocks/toxic_lily",
+      "layer0": "corvus:blocks/toxic_lily"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "corvus:item"
+    }]
+  }
+}

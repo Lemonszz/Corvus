@@ -1,0 +1,25 @@
+{
+  "type": "forge:ore_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemCrystalQuartz"
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemWiser"
+    },
+    {
+      "item": "corvus:oil_protective"
+    },
+    {
+      "item": "minecraft:experience_bottle"
+    },
+    {
+      "item": "minecraft:ghast_tear"
+    }
+  ],
+  "result": {
+    "item": "corvus:oil_attuned"
+  }
+}
