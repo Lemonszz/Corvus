@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/blood_rose",
+      "all": "corvus:blocks/blood_rose",
+      "layer0": "corvus:blocks/blood_rose"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "corvus:item"
+    }]
+  }
+}

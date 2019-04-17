@@ -6,6 +6,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
+import net.minecraftforge.common.EnumPlantType;
 import party.lemons.lemonlib.item.IItemModel;
 
 
@@ -24,4 +25,5 @@ public class BlockCorvusFlower extends BlockBush implements IItemModel
 	public EnumOffsetType getOffsetType() {
 		return EnumOffsetType.XZ;
 	}
+
 }

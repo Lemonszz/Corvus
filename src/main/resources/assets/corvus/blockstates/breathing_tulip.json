@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/breathing_tulip",
+      "all": "corvus:blocks/breathing_tulip",
+      "layer0": "corvus:blocks/breathing_tulip"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "corvus:item"
+    }]
+  }
+}

@@ -36,8 +36,14 @@ public class CorvusBlocks
 
 	public static final Block WORMWOOD = Blocks.AIR;
 	public static final Block LAVENDER = Blocks.AIR;
+
 	public static final Block BLAZING_TULIP = Blocks.AIR;
 	public static final Block LILY_TOXIC = Blocks.AIR;
+	public static final Block BREATHING_TULIP = Blocks.AIR;
+	public static final Block BLOOD_ROSE = Blocks.AIR;
+	public static final Block STUNNING_DAHLIA = Blocks.AIR;
+	public static final Block BLOOM_OF_DEATH = Blocks.AIR;
+
 
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
@@ -66,5 +72,9 @@ public class CorvusBlocks
 
 		BlockRegistry.registerBlock(new BlockLilyToxic(), "lily_toxic", "flower", "lily");
 		BlockRegistry.registerBlock(new BlockBlazingTulip(), "blazing_tulip", "flower", "tulip");
+		BlockRegistry.registerBlock(new BlockBreathingTulip(), "breathing_tulip", "flower", "tulip");
+		BlockRegistry.registerBlock(new BlockBloodRose(), "blood_rose", "flower");
+		BlockRegistry.registerBlock(new BlockStunningDahlia(), "stunning_dahlia", "flower");
+		BlockRegistry.registerBlock(new BlockBloomOfDeath(), "bloom_of_death", "flower");
 	}
 }

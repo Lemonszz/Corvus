@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/stunning_dahlia",
+      "all": "corvus:blocks/stunning_dahlia",
+      "layer0": "corvus:blocks/stunning_dahlia"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "corvus:item"
+    }]
+  }
+}

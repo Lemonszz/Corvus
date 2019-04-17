@@ -1,0 +1,18 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "textures": {
+      "cross": "corvus:blocks/bloom_of_death",
+      "all": "corvus:blocks/bloom_of_death",
+      "layer0": "corvus:blocks/bloom_of_death"
+    },
+    "model": "cross",
+    "uvlock": true
+  },
+  "variants": {
+    "normal": [{}],
+    "inventory": [{
+      "model": "corvus:item"
+    }]
+  }
+}
