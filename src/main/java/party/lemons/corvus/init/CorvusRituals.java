@@ -11,15 +11,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreIngredient;
 import party.lemons.corvus.Corvus;
-import party.lemons.corvus.ritual.Ritual;
-import party.lemons.corvus.ritual.RitualAwaken;
-import party.lemons.corvus.ritual.RitualProjection;
-import party.lemons.corvus.ritual.RitualSoulForge;
+import party.lemons.corvus.ritual.*;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
 @GameRegistry.ObjectHolder(Corvus.MODID)
 public class CorvusRituals
 {
+	public static final Ritual TO_GAIAS_LAND = null;
+
 	@SubscribeEvent
 	public static void onRegisterRitual(RegistryEvent.Register<Ritual> event)
 	{
@@ -40,7 +39,14 @@ public class CorvusRituals
 				new RitualProjection(
 						of(CorvusItems.OIL_PROTECTIVE),
 						of("gemCrystalQuartz")
-				).setRegistryName(Corvus.MODID, "project")
+				).setRegistryName(Corvus.MODID, "project"),
+
+				new RitualToGaiasLand(
+						of("gemCrystalQuartz"),
+						of("flower"),
+						of("treeSapling"),
+						of("obsidian")
+				).setRegistryName(Corvus.MODID, "to_gaias_land")
 		);
 	}
 

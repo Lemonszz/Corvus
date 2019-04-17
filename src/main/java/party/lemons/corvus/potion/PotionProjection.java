@@ -18,11 +18,21 @@ public class PotionProjection extends PotionCorvus
 	{
 		if(entity instanceof EntityPlayer)
 		{
-			((EntityPlayer) entity).capabilities.isFlying = false;
-			((EntityPlayer) entity).capabilities.allowFlying = false;
-			((EntityPlayer) entity).capabilities.allowEdit = true;
-			((EntityPlayer) entity).capabilities.disableDamage = false;
-			((EntityPlayer) entity).sendPlayerAbilities();
+			EntityPlayer player = (EntityPlayer) entity;
+
+			player.capabilities.isFlying = false;
+
+			if(!player.isCreative())
+			{
+				player.capabilities.disableDamage = false;
+				player.capabilities.allowFlying = false;
+			}
+
+			if(!player.isSpectator())
+			{
+				player.capabilities.allowEdit = true;
+			}
+			player.sendPlayerAbilities();
 
 
 			IProjection cap = entity.getCapability(ProjectionCapability.CAPABILITY, null);

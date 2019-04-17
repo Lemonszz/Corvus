@@ -10,6 +10,7 @@ item.corvus.wormwood.name=Wormwood
 item.corvus.lavender.name=Lavender
 item.corvus.lavender_seeds.name=Lavender Seeds
 item.corvus.wormwood_seeds.name=Wormwood Seeds
+item.corvus.cursed_bone.name=Cursed Bone
 
 tile.corvus.crystal_quartz_ore.name=Crystal Quartz Ore
 tile.corvus.candle.name=Candle
@@ -23,6 +24,7 @@ tile.corvus.frankinsence_planks.name=Frankincense Planks
 tile.corvus.crystal_quartz_block.name=Crystal Quartz Block
 
 entity.Crow.name=Crow
+entity.Wendigo.name=Wendigo
 
 corvus.subtitle.crow_yell=Crow Warns
 corvus.subtitle.crow_caw=Crow Caws
@@ -49,6 +51,7 @@ advancements.corvus.tame_crow.title=Corvus Friendus
 advancements.corvus.tame_crow.description=Tame a crow
 
 corvus.message.grimoire.fail=You can't seem to open it
+corvus.message.creativeonly=Creative Only
 
 corvus.jei.rituals=Rituals
 corvus:awaken.name=Awaken

@@ -22,6 +22,8 @@ public class CorvusNetwork
 		INSTANCE.registerMessage(MessageCastSpell.Handler.class, MessageCastSpell.class, id++, Side.SERVER);
 		INSTANCE.registerMessage(MessageSyncCrow.Handler.class, MessageSyncCrow.class, id++, Side.CLIENT);
 		INSTANCE.registerMessage(MessageSyncAwakened.Handler.class, MessageSyncAwakened.class, id++, Side.CLIENT);
+		INSTANCE.registerMessage(MessageSyncGaiaBreath.Handler.class, MessageSyncGaiaBreath.class, id++, Side.CLIENT);
+		INSTANCE.registerMessage(MessageDoEffect.Handler.class, MessageDoEffect.class, id++, Side.CLIENT);
 	}
 
 	private static int id = 0;

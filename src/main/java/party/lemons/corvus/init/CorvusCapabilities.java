@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -23,6 +24,11 @@ import party.lemons.corvus.capability.crow.CrowCapability;
 import party.lemons.corvus.capability.crow.CrowContainer;
 import party.lemons.corvus.capability.crow.CrowContainerProvider;
 import party.lemons.corvus.capability.crow.ICrow;
+import party.lemons.corvus.capability.gaiabreath.*;
+import party.lemons.corvus.capability.inventoryswitch.IInventorySwitch;
+import party.lemons.corvus.capability.inventoryswitch.InventorySwitchCapability;
+import party.lemons.corvus.capability.inventoryswitch.InventorySwitchContainer;
+import party.lemons.corvus.capability.inventoryswitch.InventorySwitchProvider;
 import party.lemons.corvus.capability.projection.IProjection;
 import party.lemons.corvus.capability.projection.ProjectionCapability;
 import party.lemons.corvus.capability.projection.ProjectionCapabilityProvider;
@@ -39,8 +45,10 @@ public class CorvusCapabilities
 	public static void onPreInit(InitEvent.Pre event)
 	{
 		CapabilityManager.INSTANCE.register(ISpirit.class, new SpiritCapability.CapabilitySpirit(), SpiritContainer::new);
-		CapabilityManager.INSTANCE.register(ICrow.class, new  CrowCapability.CapabilitySpirit(), CrowContainer::new);
-		CapabilityManager.INSTANCE.register(IProjection.class, new  ProjectionCapability.CapabilityCrow(), ProjectionContainer::new);
+		CapabilityManager.INSTANCE.register(ICrow.class, new CrowCapability.CapabilitySpirit(), CrowContainer::new);
+		CapabilityManager.INSTANCE.register(IProjection.class, new ProjectionCapability.CapabilityCrow(), ProjectionContainer::new);
+		CapabilityManager.INSTANCE.register(IGaiaBreath.class, new GaiaBreathCapability.CapabilityGaiaBreath(), GaiaBreathContainer::new);
+		CapabilityManager.INSTANCE.register(IInventorySwitch.class, new InventorySwitchCapability.CapabilityInventorySwitch(), InventorySwitchContainer::new);
 	}
 
 	@SubscribeEvent
@@ -51,6 +59,8 @@ public class CorvusCapabilities
 			event.addCapability(new ResourceLocation(Corvus.MODID, "spirit"), new SpiritContainerProvider(new SpiritContainer()));
 			event.addCapability(new ResourceLocation(Corvus.MODID, "crow"), new CrowContainerProvider(new CrowContainer()));
 			event.addCapability(new ResourceLocation(Corvus.MODID, "projection"), new ProjectionCapabilityProvider(new ProjectionContainer()));
+			event.addCapability(new ResourceLocation(Corvus.MODID, "gaia_breath"), new GaiaBreathContainerProvider(new GaiaBreathContainer()));
+			event.addCapability(new ResourceLocation(Corvus.MODID, "inventory_switch"), new InventorySwitchProvider(new InventorySwitchContainer()));
 		}
 	}
 
@@ -62,6 +72,7 @@ public class CorvusCapabilities
 			EntityPlayer player = (EntityPlayer) event.getEntity();
 
 			SpiritUtil.syncSpirit(player);
+			GaiaBreathUtil.syncGaiaBreath(player);
 
 			if(player instanceof EntityPlayerMP)
 				CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(SpiritUtil.getSpirit(player).isAwakened()), (EntityPlayerMP) player);
@@ -86,6 +97,16 @@ public class CorvusCapabilities
 							new ResourceLocation(Corvus.MODID, "corvus/awaken"))),
 					(EntityPlayerMP) event.getEntityPlayer());
 		}
+
+		////
+		System.out.println("Respawn switch");
+
+		IInventorySwitch inventorySwitch = event.getOriginal().getCapability(InventorySwitchCapability.CAPABILITY, null);
+		NBTTagList tagList = inventorySwitch.serializeNBT();
+
+		IInventorySwitch inventorySwitchNew = event.getEntityPlayer().getCapability(InventorySwitchCapability.CAPABILITY, null);
+		inventorySwitch.deserializeNBT(tagList);
+		inventorySwitchNew.swapInventory(event.getEntityPlayer());
 	}
 
 	@SubscribeEvent

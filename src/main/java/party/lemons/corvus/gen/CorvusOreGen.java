@@ -8,7 +8,9 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.gen.gaia.dimension.GaiaDimension;
 import party.lemons.corvus.init.CorvusBlocks;
+import party.lemons.lemonlib.gen.feature.FeatureDimension;
 import party.lemons.lemonlib.gen.feature.FeatureRange;
 import party.lemons.lemonlib.gen.feature.FeatureVein;
 
@@ -20,6 +22,9 @@ public class CorvusOreGen
 	private static final WorldGenerator CRYSTAL_QUARTZ_GENERATOR =
 			new FeatureRange(new FeatureVein(b ->CorvusBlocks.CRYSTAL_QUARTZ_ORE.getDefaultState(), 10), 1, 0, 16);
 
+	private static final WorldGenerator CRYSTAL_QUARTZ_GENERATOR_GAIA =
+			new FeatureDimension(new FeatureRange(new FeatureVein(b ->CorvusBlocks.CRYSTAL_QUARTZ_ORE.getDefaultState(), 10), 2, 0, 48), GaiaDimension.GAIA_ID);
+
 	@SubscribeEvent
 	public static void onPopulateChunk(PopulateChunkEvent.Pre event)
 	{
@@ -28,5 +33,6 @@ public class CorvusOreGen
 		BlockPos pos = new ChunkPos(event.getChunkX(), event.getChunkZ()).getBlock(8, 0, 8);
 
 		CRYSTAL_QUARTZ_GENERATOR.generate(world, rand, pos);
+		CRYSTAL_QUARTZ_GENERATOR_GAIA.generate(world, rand, pos);
 	}
 }

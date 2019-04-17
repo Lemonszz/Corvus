@@ -1,6 +1,5 @@
 package party.lemons.corvus.capability.spirit;
 
-import net.minecraft.advancements.PlayerAdvancements;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

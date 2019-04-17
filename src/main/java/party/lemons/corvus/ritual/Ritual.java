@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 import party.lemons.corvus.capability.crow.CrowCapability;
+import party.lemons.corvus.handler.AttunedEffectHandler;
 import party.lemons.corvus.init.CorvusSounds;
 import party.lemons.corvus.spell.SpellLeap;
 
@@ -30,7 +31,7 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 		if(world.isRemote)
 			return false;
 
-		if(removeItems(world, pos))
+		if(removeItems(world, pos, player))
 		{
 			perform(world, pos, player);
 			world.playSound(null, pos, CorvusSounds.RITUAL, SoundCategory.BLOCKS, 2F, 1F);
@@ -50,7 +51,7 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 		return ingredients.length == 0;
 	}
 
-	public boolean removeItems(World world, BlockPos pos)
+	public boolean removeItems(World world, BlockPos pos, EntityPlayer caster)
 	{
 		if(isEmpty())
 			return false;
@@ -84,7 +85,11 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 		{
 			for(EntityItem item : matches)
 			{
-				item.getItem().shrink(1);
+				boolean saveItem = AttunedEffectHandler.isAttuned(caster) && caster.getRNG().nextInt(5) == 0;
+				if(!saveItem)
+				{
+					item.getItem().shrink(1);
+				}
 				CrowCapability.spawnParticles((WorldServer) world, item, 5, 0.3F);
 			}
 

@@ -1,6 +1,5 @@
 package party.lemons.corvus.init;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
@@ -29,6 +28,7 @@ public class CorvusItems
 	public static final Item OIL_GROWTH = Items.AIR;
 	public static final Item OIL_PROTECTIVE = Items.AIR;
 	public static final Item CURSED_BONE = Items.AIR;
+	public static final Item SPECIAL_STICK = Items.AIR;
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
@@ -37,9 +37,25 @@ public class CorvusItems
 
 		ItemRegistry.registerItem(new ItemGrimoire(), "grimoire", "book");
 
-		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{new PotionEffect(MobEffects.REGENERATION, 2400, 1)}), "oil_growth", "oil");
-		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{new PotionEffect(MobEffects.STRENGTH, 2400, 1), new PotionEffect(CorvusPotions.BURNING_RAGE, 2400, 0)}), "oil_enraged", "oil");
-		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{new PotionEffect(MobEffects.SPEED, 2400, 1), new PotionEffect(CorvusPotions.SLOW_FALL, 2400, 1)}), "oil_protective", "oil");
+		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{
+				new PotionEffect(MobEffects.REGENERATION, 2400, 1)
+		}), "oil_growth", "oil");
+
+		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{
+				new PotionEffect(MobEffects.STRENGTH, 2400, 1),
+				new PotionEffect(CorvusPotions.BURNING_RAGE, 2400, 0)
+		}), "oil_enraged", "oil");
+
+		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{
+				new PotionEffect(MobEffects.SPEED, 2400, 1),
+				new PotionEffect(CorvusPotions.SLOW_FALL, 2400, 1)
+		}), "oil_protective", "oil");
+
+		ItemRegistry.registerItem(new ItemOil(()-> new PotionEffect[]{
+				new PotionEffect(MobEffects.NIGHT_VISION, 2400, 0),
+				new PotionEffect(MobEffects.SATURATION, 2400, 5),
+				new PotionEffect(CorvusPotions.ATTUNED, 2400, 0)
+		}), "oil_attuned", "oil");
 
 		ItemRegistry.registerItem(new ItemModel(), "crystal_quartz", "gemCrystalQuartz");
 
@@ -51,6 +67,6 @@ public class CorvusItems
 		ItemRegistry.registerItem(new ItemCorvusSeed(()->CorvusBlocks.WORMWOOD.getDefaultState(), EnumPlantType.Crop), "wormwood_seeds");
 
 		ItemRegistry.registerItem(new ItemCursedBone(), "cursed_bone", "bone");
-
+		ItemRegistry.registerItem(new ItemSpecialStick(), "special_stick");
 	}
 }

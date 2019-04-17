@@ -38,16 +38,25 @@ public class ClientInit
 	{
 		event.getBlockColors().registerBlockColorHandler((state, worldIn, pos, tintIndex)->0x88d88c, CorvusBlocks.FRANKINSENCE_LEAVES);
 
-		event.getBlockColors().registerBlockColorHandler((state, worldIn, pos, tintIndex)
-				->((BlockEffectCandle)state.getBlock()).getEffect().getColour(),
-				CorvusBlocks.CANDLE_GROWTH, CorvusBlocks.CANDLE_RAGE, CorvusBlocks.CANDLE_WIND);
+		event.getBlockColors().registerBlockColorHandler((state, worldIn, pos, tintIndex)->{
+				if(tintIndex == 0)
+				{
+					return ((BlockEffectCandle)state.getBlock()).getEffect().getColour();
+				}
+				return 0xFFFFFF;
+		}, CorvusBlocks.CANDLE_GROWTH, CorvusBlocks.CANDLE_RAGE, CorvusBlocks.CANDLE_WIND);
 	}
 
 	@SubscribeEvent
 	public static void onRegisterColorItem(ColorHandlerEvent.Item event)
 	{
 		event.getItemColors().registerItemColorHandler((stack, tintIndex)->0x88d88c, CorvusBlocks.FRANKINSENCE_LEAVES);
-		event.getItemColors().registerItemColorHandler((stack, tintIndex)->((BlockEffectCandle)((ItemBlock)stack.getItem()).getBlock()).getEffect().getColour()
-				, CorvusBlocks.CANDLE_GROWTH, CorvusBlocks.CANDLE_RAGE, CorvusBlocks.CANDLE_WIND);
+		event.getItemColors().registerItemColorHandler((stack, tintIndex)->{
+			if(tintIndex == 0)
+			{
+				return ((BlockEffectCandle) ((ItemBlock) stack.getItem()).getBlock()).getEffect().getColour();
+			}
+			return 0xFFFFFF;
+		}, CorvusBlocks.CANDLE_GROWTH, CorvusBlocks.CANDLE_RAGE, CorvusBlocks.CANDLE_WIND);
 	}
 }

@@ -11,7 +11,10 @@ import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.ResourceLocation;
@@ -20,6 +23,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
+import net.minecraftforge.items.ItemStackHandler;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.init.CorvusSounds;
@@ -91,6 +95,20 @@ public class EntityWendigo extends EntityMob
 		}
 
 		return super.attackEntityFrom(source, amount);
+	}
+
+	@Override
+	public void onDeath(DamageSource cause)
+	{
+		if(cause.getTrueSource() != null && cause.getTrueSource() instanceof EntityPlayer)
+		{
+			entityDropItem(new ItemStack(Items.LEATHER, rand.nextInt(4)), 0);
+			if(rand.nextInt(100) < 6)
+				entityDropItem(new ItemStack(Items.LEATHER, rand.nextInt(4)), 0);
+
+		}
+
+		super.onDeath(cause);
 	}
 
 	public boolean attackEntityAsMob(Entity entityIn)
@@ -185,7 +203,7 @@ public class EntityWendigo extends EntityMob
 	@Nullable
 	protected ResourceLocation getLootTable()
 	{
-		return LootTableList.ENTITIES_ZOMBIE;
+		return null;
 	}
 
 	public EnumCreatureAttribute getCreatureAttribute()
