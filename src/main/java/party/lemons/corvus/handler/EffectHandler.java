@@ -1,79 +1,19 @@
 package party.lemons.corvus.handler;
 
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumHand;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.TickEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import party.lemons.corvus.Corvus;
-import party.lemons.corvus.init.CorvusBlocks;
 import party.lemons.corvus.init.CorvusNetwork;
-import party.lemons.corvus.init.CorvusPotions;
 import party.lemons.corvus.network.MessageDoEffect;
-
-import java.util.Arrays;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
 public class EffectHandler
 {
 	public static final int BLOCK_HIGHLIGHT = 0;
 	public static final int STUNNING_DAHLIA = 1;
-
-	@SubscribeEvent
-	public static void onPlayerTick(TickEvent.PlayerTickEvent event)
-	{
-		if(event.player.ticksExisted % 20 == 0)
-		{
-			EntityPlayer player = event.player;
-			Arrays.stream(EnumHand.values()).forEach(h ->
-			{
-				ItemStack heldStack = player.getHeldItem(h);
-				if(!heldStack.isEmpty())
-				{
-					if(heldStack.getItem() instanceof ItemBlock)
-					{
-						ItemBlock ib = (ItemBlock) heldStack.getItem();
-						if(ib.getBlock() == CorvusBlocks.BLOOM_OF_DEATH)
-						{
-							player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 20, 0, true ,true));
-						}
-					}
-				}
-
-			});
-
-		}
-	}
-
-	@SubscribeEvent
-	public static void onInteractEntity(PlayerInteractEvent.EntityInteract event)
-	{
-		if(event.getTarget() instanceof EntityLivingBase)
-		{
-			ItemStack stack = event.getItemStack();
-			if(!stack.isEmpty() && stack.getItem() instanceof ItemBlock)
-			{
-				if(((ItemBlock) stack.getItem()).getBlock() == CorvusBlocks.STUNNING_DAHLIA)
-				{
-					if(!event.getEntityPlayer().isCreative())
-						stack.shrink(1);
-
-					CorvusPotions.STUNNED.affectEntity(event.getEntityPlayer(), null, (EntityLivingBase) event.getTarget(), 0, 1);
-					((EntityLivingBase) event.getTarget()).addPotionEffect(new PotionEffect(CorvusPotions.STUNNED, 5 * 20, 0, false, true));
-				}
-			}
-		}
-	}
 
 	public static void performEffect(int effect, BlockPos pos, World world)
 	{

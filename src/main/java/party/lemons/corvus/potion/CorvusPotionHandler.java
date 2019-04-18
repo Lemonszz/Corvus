@@ -9,16 +9,23 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.init.CorvusBlocks;
 import party.lemons.corvus.init.CorvusPotions;
+
+import java.util.Arrays;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
 public class CorvusPotionHandler
@@ -51,6 +58,33 @@ public class CorvusPotionHandler
 				event.player.fallDistance = 0;
 			}
 
+			/*
+					Flower Effects
+			 */
+			if(event.player.ticksExisted % 20 == 0)
+			{
+				EntityPlayer player = event.player;
+				Arrays.stream(EnumHand.values()).forEach(h ->
+				{
+					ItemStack heldStack = player.getHeldItem(h);
+					if(!heldStack.isEmpty())
+					{
+						if(heldStack.getItem() instanceof ItemBlock)
+						{
+							ItemBlock ib = (ItemBlock) heldStack.getItem();
+							if(ib.getBlock() == CorvusBlocks.BLOOM_OF_DEATH)
+							{
+								player.addPotionEffect(new PotionEffect(MobEffects.WITHER, 40, 0, true ,true));
+							}
+							else if(ib.getBlock() == CorvusBlocks.BREATHING_TULIP)
+							{
+								player.addPotionEffect(new PotionEffect(CorvusPotions.BREATH_OF_GAIA, 20, 0, true ,true));
+							}
+						}
+					}
+
+				});
+			}
 		}
 	}
 
@@ -124,6 +158,27 @@ public class CorvusPotionHandler
 
 				int health = (int) ((EntityLivingBase) event.getEntity()).getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getAttributeValue();
 				attacker.setAbsorptionAmount(attacker.getAbsorptionAmount() + health);
+			}
+		}
+	}
+
+
+	@SubscribeEvent
+	public static void onInteractEntity(PlayerInteractEvent.EntityInteract event)
+	{
+		if(event.getTarget() instanceof EntityLivingBase)
+		{
+			ItemStack stack = event.getItemStack();
+			if(!stack.isEmpty() && stack.getItem() instanceof ItemBlock)
+			{
+				if(((ItemBlock) stack.getItem()).getBlock() == CorvusBlocks.STUNNING_DAHLIA)
+				{
+					if(!event.getEntityPlayer().isCreative())
+						stack.shrink(1);
+
+					CorvusPotions.STUNNED.affectEntity(event.getEntityPlayer(), null, (EntityLivingBase) event.getTarget(), 0, 1);
+					((EntityLivingBase) event.getTarget()).addPotionEffect(new PotionEffect(CorvusPotions.STUNNED, 5 * 20, 0, false, true));
+				}
 			}
 		}
 	}

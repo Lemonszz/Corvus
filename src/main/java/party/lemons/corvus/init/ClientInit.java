@@ -21,7 +21,7 @@ import party.lemons.lemonlib.event.InitEvent;
 @Mod.EventBusSubscriber(modid = Corvus.MODID, value = Side.CLIENT)
 public class ClientInit
 {
-	public static final KeyBinding KEY_SPELL = new KeyBinding("key.corvus.use", 46, "key.categories.gameplay");
+	public static final KeyBinding KEY_SPELL = new KeyBinding("key.corvus.use", 46, "key.categories.corvus");
 
 	@SubscribeEvent
 	public static void onPreInit(InitEvent.Pre event)

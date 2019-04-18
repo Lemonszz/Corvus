@@ -70,5 +70,7 @@ public class CorvusItems
 
 		ItemRegistry.registerItem(new ItemCursedBone(), "cursed_bone", "bone");
 		ItemRegistry.registerItem(new ItemSpecialStick(), "special_stick");
+
+		ItemRegistry.registerItem(new ItemBreathingTulip(CorvusBlocks.BREATHING_TULIP), "breathing_tulip", "flower", "tulip");
 	}
 }

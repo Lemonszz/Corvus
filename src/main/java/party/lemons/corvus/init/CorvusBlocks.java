@@ -62,8 +62,8 @@ public class CorvusBlocks
 		BlockRegistry.registerBlock(new BlockCorvusSapling(new FeatureFrankincenseTree(true)), "frankinsence_sapling", "treeSapling");
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.WOOD), 2F, 5F, 0F)), "frankinsence_planks", "plankWood");
 
-		BlockRegistry.registerBlock(new BlockCorvusCrop(()->CorvusItems.LAVENDER, ()->CorvusItems.LAVENDER_SEEDS), "lavender", "flower");
-		BlockRegistry.registerBlock(new BlockCorvusCrop(()->CorvusItems.WORMWOOD, ()->CorvusItems.WORMWOOD_SEEDS), "wormwood", "flower");
+		BlockRegistry.registerBlock(new BlockCorvusCrop(()->CorvusItems.LAVENDER, ()->CorvusItems.LAVENDER_SEEDS), "lavender");
+		BlockRegistry.registerBlock(new BlockCorvusCrop(()->CorvusItems.WORMWOOD, ()->CorvusItems.WORMWOOD_SEEDS), "wormwood");
 
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "crystal_quartz_block", "blockCrystalQuartz");
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "wiser_gem_block", "blockWiserGem");

@@ -7,6 +7,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.ItemStackHelper;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -15,6 +16,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import party.lemons.corvus.handler.EffectHandler;
+
+import java.util.Random;
 
 public class BlockStunningDahlia extends BlockCorvusFlower
 {
@@ -57,6 +60,12 @@ public class BlockStunningDahlia extends BlockCorvusFlower
 		}
 
 		return super.onBlockActivated(world, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
+	}
+
+	@Override
+	public Item getItemDropped(IBlockState state, Random rand, int fortune)
+	{
+		return Items.AIR;
 	}
 
 	@Override

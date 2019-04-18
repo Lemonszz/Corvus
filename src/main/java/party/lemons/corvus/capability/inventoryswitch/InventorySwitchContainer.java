@@ -2,8 +2,10 @@ package party.lemons.corvus.capability.inventoryswitch;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagList;
+import party.lemons.corvus.init.CorvusBlocks;
 import party.lemons.corvus.init.CorvusItems;
 
 import java.util.HashMap;
@@ -116,7 +118,7 @@ public class InventorySwitchContainer implements IInventorySwitch
 
 	public static boolean isExceptionItem(ItemStack stack)
 	{
-		return !stack.isEmpty() && (stack.getItem() == CorvusItems.GRIMOIRE);
+		return !stack.isEmpty() && ((stack.getItem() == CorvusItems.GRIMOIRE) || stack.getItem() == Item.getItemFromBlock(CorvusBlocks.BREATHING_TULIP));
 	}
 
 	public NBTTagList serializeNBT()
