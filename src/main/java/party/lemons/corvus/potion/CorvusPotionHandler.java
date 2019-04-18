@@ -1,11 +1,16 @@
 package party.lemons.corvus.potion;
 
+import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.RandomPositionGenerator;
+import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.math.Vec3d;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
@@ -52,11 +57,38 @@ public class CorvusPotionHandler
 	@SubscribeEvent
 	public static void doNoClip(LivingEvent.LivingUpdateEvent event)
 	{
-		if(event.getEntity() instanceof EntityPlayer)
+		EntityLivingBase entity = event.getEntityLiving();
+
+		if(entity instanceof EntityPlayer)
 		{
-			if(event.getEntityLiving().getActivePotionEffect(CorvusPotions.PROJECTION) != null)
+			if(entity.getActivePotionEffect(CorvusPotions.PROJECTION) != null)
 			{
-				event.getEntityLiving().noClip = true;
+				entity.noClip = true;
+				if (entity.getActivePotionEffect(CorvusPotions.STUNNED) != null)
+				{
+					EntityPlayer player = (EntityPlayer) entity;
+					player.motionX += (player.getRNG().nextFloat() / (float)player.getRNG().nextInt(2)) * (player.getRNG().nextBoolean() ? -1 : 1);
+					//player.motionY += (player.getRNG().nextFloat() / (float)player.getRNG().nextInt(2)) * (player.getRNG().nextBoolean() ? -1 : 1);
+					player.motionZ += (player.getRNG().nextFloat() / (float)player.getRNG().nextInt(2)) * (player.getRNG().nextBoolean() ? -1 : 1);
+					player.velocityChanged = true;
+				}
+			}
+		}
+		else
+		{
+			if(entity instanceof EntityLiving)
+			{
+				EntityLiving living = (EntityLiving) entity;
+				if (!living.world.isRemote && living.getActivePotionEffect(CorvusPotions.STUNNED) != null)
+				{
+					living.setRevengeTarget(null);
+					living.setAttackTarget(null);
+
+					Vec3d vec3d = RandomPositionGenerator.getLandPos((EntityCreature)living, 4, 7);
+
+					if(vec3d != null)
+						living.getNavigator().setPath(living.getNavigator().getPathToXYZ(vec3d.x, vec3d.y, vec3d.z), 1F);
+				}
 			}
 		}
 	}
