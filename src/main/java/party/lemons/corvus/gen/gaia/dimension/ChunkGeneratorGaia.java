@@ -16,7 +16,11 @@ import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.feature.WorldGenDungeons;
 import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
+import party.lemons.corvus.gen.gaia.FeatureFlower;
+import party.lemons.corvus.init.CorvusBlocks;
+import party.lemons.lemonlib.gen.feature.FeatureChance;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -36,6 +40,12 @@ public class ChunkGeneratorGaia implements IChunkGenerator
 	private final World world;
 	private final BlockPos spawnPoint;
 	private MapGenBase caveGenerator = new MapGenGaiaCaves();
+
+	private static final WorldGenerator TOXIC_LILLY_GEN = new FeatureFlower(()->CorvusBlocks.LILY_TOXIC.getDefaultState());
+	private static final WorldGenerator STUNNING_DAHLIA_GEN = new FeatureFlower(()->CorvusBlocks.STUNNING_DAHLIA.getDefaultState());
+	private static final WorldGenerator BLOOM_OF_DEATH_GEN = new FeatureFlower(()->CorvusBlocks.BLOOM_OF_DEATH.getDefaultState());
+	private static final WorldGenerator BLOOD_ROSE_GEN = new FeatureFlower(()->CorvusBlocks.BLOOD_ROSE.getDefaultState(), 5);
+	private static final WorldGenerator FIRE_FLOWE_GEN = new FeatureFlower(()->CorvusBlocks.BLAZING_TULIP.getDefaultState());
 
 	public ChunkGeneratorGaia(World world, long seed, BlockPos spawn)
 	{
@@ -303,6 +313,15 @@ public class ChunkGeneratorGaia implements IChunkGenerator
 		}
 	}
 
+	private BlockPos randomPos(BlockPos pos)
+	{
+		int addX = this.rand.nextInt(16) + 8;
+		int addY = this.rand.nextInt(256);
+		int addZ = this.rand.nextInt(16) + 8;
+
+		return pos.add(addX, addY, addZ);
+	}
+
 	public void populate(int x, int z)
 	{
 		BlockFalling.fallInstantly = true;
@@ -317,6 +336,15 @@ public class ChunkGeneratorGaia implements IChunkGenerator
 		boolean flag = false;
 
 		net.minecraftforge.event.ForgeEventFactory.onChunkPopulate(true, this, this.world, this.rand, x, z, flag);
+
+		for(int g = 0 ; g < 2; g++)
+		{
+			TOXIC_LILLY_GEN.generate(world, rand, randomPos(blockpos));
+			STUNNING_DAHLIA_GEN.generate(world, rand, randomPos(blockpos));
+			BLOOM_OF_DEATH_GEN.generate(world, rand, randomPos(blockpos));
+			BLOOD_ROSE_GEN.generate(world, rand, randomPos(blockpos));
+			FIRE_FLOWE_GEN.generate(world, rand, randomPos(blockpos));
+		}
 
 		if (net.minecraftforge.event.terraingen.TerrainGen.populate(this, this.world, this.rand, x, z, flag, net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.LAKE))
 		{

@@ -14,6 +14,7 @@ import party.lemons.corvus.block.*;
 import party.lemons.corvus.block.effectcandle.BlockEffectCandle;
 import party.lemons.corvus.block.effectcandle.CandleEffect;
 import party.lemons.corvus.block.effectcandle.TileEntityEffectCandle;
+import party.lemons.corvus.block.tilentity.TileEntityBreathingTulip;
 import party.lemons.corvus.crafting.CorvusTab;
 import party.lemons.corvus.gen.FeatureFrankincenseTree;
 import party.lemons.lemonlib.block.BlockRegistry;
@@ -68,13 +69,14 @@ public class CorvusBlocks
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "crystal_quartz_block", "blockCrystalQuartz");
 		BlockRegistry.registerBlock((BlockRegistry.setProperties(new BlockModel(Material.IRON), 3F, 5F, 0F)), "wiser_gem_block", "blockWiserGem");
 
-		GameRegistry.registerTileEntity(TileEntityEffectCandle.class, new ResourceLocation(Corvus.MODID, "candle"));
-
 		BlockRegistry.registerBlock(new BlockLilyToxic(), "lily_toxic", "flower", "lily");
 		BlockRegistry.registerBlock(new BlockBlazingTulip(), "blazing_tulip", "flower", "tulip");
 		BlockRegistry.registerBlock(new BlockBreathingTulip(), "breathing_tulip", "flower", "tulip");
 		BlockRegistry.registerBlock(new BlockBloodRose(), "blood_rose", "flower");
 		BlockRegistry.registerBlock(new BlockStunningDahlia(), "stunning_dahlia", "flower");
 		BlockRegistry.registerBlock(new BlockBloomOfDeath(), "bloom_of_death", "flower");
+
+		GameRegistry.registerTileEntity(TileEntityEffectCandle.class, new ResourceLocation(Corvus.MODID, "candle"));
+		GameRegistry.registerTileEntity(TileEntityBreathingTulip.class, new ResourceLocation(Corvus.MODID, "breathing_tulip"));
 	}
 }

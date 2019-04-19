@@ -4,10 +4,13 @@ import mezz.jei.api.IJeiHelpers;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.resources.I18n;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.client.config.GuiUtils;
 import party.lemons.corvus.ritual.Ritual;
 
 import java.util.ArrayList;
@@ -45,6 +48,21 @@ public class RitualRecipeWrapper implements IRecipeWrapper
 				list.add(TextFormatting.DARK_GRAY + ritual.getRegistryName().toString());
 		}
 
+		if(ritual.hasTip())
+		{
+			if(mouseX >= 100 && mouseX < 116)
+			{
+				List<String> tipStrings = ritual.getTipText();
+				if(tipStrings != null)
+				{
+					for(String s : tipStrings)
+					{
+						list.add(s);
+					}
+				}
+			}
+		}
+
 		return list;
 	}
 
@@ -54,6 +72,12 @@ public class RitualRecipeWrapper implements IRecipeWrapper
 	{
 		String translate = I18n.format(ritual.getTranslationKey());
 		Minecraft.getMinecraft().fontRenderer.drawString(translate, 2, -2, 0x333333);
+
+		if(ritual.hasTip())
+		{
+			ItemStack stack = ritual.getTipStack();
+			minecraft.getRenderItem().renderItemIntoGUI(stack, recipeWidth - 22, 6);
+		}
 	}
 
 	@Override

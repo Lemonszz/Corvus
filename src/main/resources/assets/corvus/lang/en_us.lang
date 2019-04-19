@@ -45,6 +45,9 @@ effects.corvusconcealment.name=Concealment
 effects.corvusprojection.name=Projection
 effects.corvusslow_fall.name=Slow Fall
 effects.corvussoul_forge.name=Soul Forge
+effects.corvusbreath_of_gaia.name=Breath of Gaia
+effects.corvusattuned.name=Attunement
+effects.corvusstunned.name=Stunned
 
 spell.leap.name=Corvus Flap
 spell.conceal.name=Conceal
@@ -63,6 +66,7 @@ advancements.corvus.tame_crow.description=Tame a crow
 
 corvus.message.grimoire.fail=You can't seem to open it
 corvus.message.creativeonly=Creative Only
+corvus.message.requireattuned=This ritual requires you to be under the effects of the Oil of the Attuned
 
 corvus.jei.rituals=Rituals
 corvus:awaken.name=Awaken

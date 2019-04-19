@@ -23,7 +23,6 @@ public class GaiaDimensionTransferHandler
 
 		if((event.toDim == GaiaDimension.GAIA_ID && event.fromDim != GaiaDimension.GAIA_ID) || event.toDim == 0 && event.fromDim == GaiaDimension.GAIA_ID)
 		{
-			System.out.println("Do switch");
 			switchInventory(event.player);
 		}
 	}

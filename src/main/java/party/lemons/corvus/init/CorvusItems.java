@@ -27,6 +27,7 @@ public class CorvusItems
 	public static final Item WORMWOOD_SEEDS = Items.AIR;
 	public static final Item OIL_GROWTH = Items.AIR;
 	public static final Item OIL_PROTECTIVE = Items.AIR;
+	public static final Item OIL_ATTUNED = Items.AIR;
 	public static final Item CURSED_BONE = Items.AIR;
 	public static final Item SPECIAL_STICK = Items.AIR;
 	public static final Item WISER_GEM = Items.AIR;

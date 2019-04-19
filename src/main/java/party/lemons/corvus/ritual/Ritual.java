@@ -2,6 +2,7 @@ package party.lemons.corvus.ritual;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -107,5 +108,20 @@ public class Ritual extends IForgeRegistryEntry.Impl<Ritual>
 	public String getTranslationKey()
 	{
 		return getRegistryName() + ".name";
+	}
+
+	public boolean hasTip()
+	{
+		return false;
+	}
+
+	public ItemStack getTipStack()
+	{
+		return ItemStack.EMPTY;
+	}
+
+	public List<String> getTipText()
+	{
+		return null;
 	}
 }

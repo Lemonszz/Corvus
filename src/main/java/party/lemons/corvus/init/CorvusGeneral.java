@@ -17,5 +17,11 @@ public class CorvusGeneral
 		OreDictionary.registerOre("flower", new ItemStack(Blocks.RED_FLOWER, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("flower", Blocks.YELLOW_FLOWER);
 		OreDictionary.registerOre("flower", new ItemStack(Blocks.DOUBLE_PLANT, OreDictionary.WILDCARD_VALUE));
+
+		OreDictionary.registerOre("tulip", new ItemStack(Blocks.RED_FLOWER, 1, 4));
+		OreDictionary.registerOre("tulip", new ItemStack(Blocks.RED_FLOWER, 1, 5));
+		OreDictionary.registerOre("tulip", new ItemStack(Blocks.RED_FLOWER, 1, 6));
+		OreDictionary.registerOre("tulip", new ItemStack(Blocks.RED_FLOWER, 1, 7));
+
 	}
 }

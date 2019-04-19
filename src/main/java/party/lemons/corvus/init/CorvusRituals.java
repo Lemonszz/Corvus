@@ -46,7 +46,14 @@ public class CorvusRituals
 						of("flower"),
 						of("treeSapling"),
 						of("obsidian")
-				).setRegistryName(Corvus.MODID, "to_gaias_land")
+				).setRegistryName(Corvus.MODID, "to_gaias_land"),
+
+				new RitualGrowthOfBreath(
+						of(CorvusItems.OIL_GROWTH),
+						of(CorvusItems.OIL_PROTECTIVE),
+						of(CorvusBlocks.BLOOD_ROSE),
+						of("tulip")
+				).setRegistryName(Corvus.MODID, "growth_of_breath")
 		);
 	}
 
