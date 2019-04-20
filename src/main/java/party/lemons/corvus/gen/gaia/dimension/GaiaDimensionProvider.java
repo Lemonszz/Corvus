@@ -68,4 +68,10 @@ public class GaiaDimensionProvider extends WorldProvider
 	{
 
 	}
+
+	@Override
+	public double getVoidFogYFactor()
+	{
+		return 999999;
+	}
 }

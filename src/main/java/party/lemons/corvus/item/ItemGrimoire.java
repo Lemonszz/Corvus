@@ -7,8 +7,10 @@ import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
+import party.lemons.corvus.compat.jei.CorvusJEI;
 
 public class ItemGrimoire extends ItemModel
 {
@@ -18,6 +20,15 @@ public class ItemGrimoire extends ItemModel
 		ItemStack stack  = playerIn.getHeldItem(handIn);
 		if(worldIn.isRemote)
 		{
+			if(Loader.isModLoaded("jei"))
+			{
+				if(playerIn.isSneaking())
+				{
+					CorvusJEI.showRitualCategory();
+					return ActionResult.newResult(EnumActionResult.SUCCESS, stack);
+				}
+			}
+
 			if(SpiritUtil.getSpirit(playerIn).getUnlockedSpells().size() > 0)
 				Corvus.PROXY.openGrimoire();
 			else

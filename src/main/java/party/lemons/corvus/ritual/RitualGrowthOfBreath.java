@@ -7,6 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import party.lemons.corvus.gen.gaia.dimension.GaiaDimension;
 import party.lemons.corvus.handler.AttunedEffectHandler;
 import party.lemons.corvus.handler.EffectHandler;
 import party.lemons.corvus.init.CorvusBlocks;
@@ -45,7 +46,7 @@ public class RitualGrowthOfBreath extends Ritual
 	@Override
 	public boolean doRitual(World world, BlockPos pos, EntityPlayer player)
 	{
-		if(AttunedEffectHandler.isAttuned(player))
+		if(AttunedEffectHandler.isAttuned(player) && world.provider.getDimension() == GaiaDimension.GAIA_ID)
 		{
 			return super.doRitual(world, pos, player);
 		}
@@ -69,6 +70,7 @@ public class RitualGrowthOfBreath extends Ritual
 	{
 		List<String> str = new ArrayList<>();
 		str.add(I18n.format("corvus.message.requireattuned"));
+		str.add(I18n.format("corvus.message.requiregaia"));
 
 		return str;
 	}

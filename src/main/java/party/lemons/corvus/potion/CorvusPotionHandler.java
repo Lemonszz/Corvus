@@ -79,6 +79,7 @@ public class CorvusPotionHandler
 							else if(ib.getBlock() == CorvusBlocks.BREATHING_TULIP)
 							{
 								player.addPotionEffect(new PotionEffect(CorvusPotions.BREATH_OF_GAIA, 20, 0, true ,true));
+								player.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0, true ,true));
 							}
 						}
 					}

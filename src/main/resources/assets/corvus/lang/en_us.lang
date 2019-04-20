@@ -67,11 +67,14 @@ advancements.corvus.tame_crow.description=Tame a crow
 corvus.message.grimoire.fail=You can't seem to open it
 corvus.message.creativeonly=Creative Only
 corvus.message.requireattuned=This ritual requires you to be under the effects of the Oil of the Attuned
+corvus.message.requiregaia=This Ritual requires you to be within the Forest of Gaia
 
 corvus.jei.rituals=Rituals
 corvus:awaken.name=Awaken
 corvus:soul_forge.name=Soul Forge
 corvus:project.name=Astral Projection
+corvus:to_gaias_land.name=To Gaia's Land
+corvus:growth_of_breath.name=Growth of Breath
 
 key.coruvs.use=Cast Spell
 key.categories.corvus=Corvus

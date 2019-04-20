@@ -45,8 +45,13 @@ public class MessageDoEffect implements IMessage
 		@Override
 		public IMessage onMessage(final MessageDoEffect message, final MessageContext ctx)
 		{
-			Minecraft.getMinecraft().addScheduledTask(() -> {
-				EffectHandler.doEffect(message.effect, message.pos, Minecraft.getMinecraft().world);
+			Minecraft.getMinecraft().addScheduledTask(new Runnable()
+			{
+				@Override
+				public void run()
+				{
+					EffectHandler.doEffect(message.effect, message.pos, Minecraft.getMinecraft().world);
+				}
 			});
 
 			return null;

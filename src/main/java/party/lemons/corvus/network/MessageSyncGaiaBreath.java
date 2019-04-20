@@ -41,11 +41,16 @@ public class MessageSyncGaiaBreath implements IMessage
 		@Override
 		public IMessage onMessage(final MessageSyncGaiaBreath message, final MessageContext ctx)
 		{
-			Minecraft.getMinecraft().addScheduledTask(() -> {
-				IGaiaBreath breath = GaiaBreathUtil.getGaiaBreath(Minecraft.getMinecraft().player);
-				if(breath != null)
+			Minecraft.getMinecraft().addScheduledTask(new Runnable()
+			{
+				@Override
+				public void run()
 				{
-					breath.setBreath(message.amt);
+					IGaiaBreath breath = GaiaBreathUtil.getGaiaBreath(Minecraft.getMinecraft().player);
+					if(breath != null)
+					{
+						breath.setBreath(message.amt);
+					}
 				}
 			});
 

@@ -94,7 +94,10 @@ public class GaiaBreathHandler
 		{
 			Minecraft mc = Minecraft.getMinecraft();
 			if(mc.world.provider.getDimension() != GaiaDimension.GAIA_ID)
+			{
+				GuiIngameForge.renderAir = true;
 				return;
+			}
 
 			if(event.getType() == RenderGameOverlayEvent.ElementType.FOOD)
 			{
