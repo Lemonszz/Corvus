@@ -1,0 +1,20 @@
+{
+  "name": "Canis Familiar",
+  "icon": "minecraft:bone",
+  "category": "spellcasting",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "corvus:Familiar",
+      "text": "",
+      "offset": 0,
+      "scale": 0.75,
+      "text": "Unlocked by killing a baby wolf."
+    },
+    {
+      "type": "text",
+      "title": "Canis Familiar",
+      "text": "The Canis Familiar ability will summon a spectral familiar to aid you in combat."
+    }
+  ]
+}

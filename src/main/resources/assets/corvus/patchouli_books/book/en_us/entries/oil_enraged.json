@@ -1,0 +1,17 @@
+{
+  "name": "Oil of Enraged Spirits",
+  "icon": "corvus:oil_enraged",
+  "category": "oils",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:oil_enraged",
+      "text": "The Oil of Enraged Spirits can be drunk to buff your strength and set your foes on fire. It can be applied to a candle to set any hostiles creatures near it on fire."
+    },
+    {
+      "type": "crafting",
+      "recipe": "corvus:oil_of_enraged_spirits",
+      "recipe2": "corvus:candle_rage"
+    }
+  ]
+}

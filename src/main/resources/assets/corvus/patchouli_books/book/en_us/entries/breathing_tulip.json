@@ -1,0 +1,16 @@
+{
+  "name": "Breathing Tulip",
+  "icon": "corvus:breathing_tulip",
+  "category": "plants",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Breathing Tulip can not be found within the world, but can be summoned via the Growth of Breath ritual.$(br)This flower will give the holder the ability to breath the air in the Forest of Gaia."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:breathing_tulip",
+      "text": ""
+    }
+  ]
+}

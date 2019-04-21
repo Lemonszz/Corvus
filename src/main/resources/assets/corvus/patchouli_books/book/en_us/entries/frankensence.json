@@ -1,0 +1,17 @@
+{
+  "name": "Frankincense",
+  "icon": "corvus:frankincense_tears",
+  "category": "plants",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:frankinsence_sapling",
+      "text": "Frankincense trees can be found in Savanna biomes.$(br)These saplings will only grow with the assistance of a Candle of Growth"
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:frankincense_tears",
+      "text": "Frankincense can be used in magical oils and aid you in rituals."
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Oil of Protective Winds",
+  "icon": "corvus:oil_protective",
+  "category": "oils",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:oil_protective",
+      "text": "The Oil of Protective Winds can be drunk to increase your move speed and save yourself from any falls. It can be applied to a candle to knock back any hostiles creatures near it."
+    },
+    {
+      "type": "crafting",
+      "recipe": "corvus:oil_of_protective_winds",
+      "recipe2": "corvus:candle_protect"
+    }
+  ]
+}

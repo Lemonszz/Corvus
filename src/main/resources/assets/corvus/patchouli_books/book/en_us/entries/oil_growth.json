@@ -1,0 +1,17 @@
+{
+  "name": "Oil of Growth",
+  "icon": "corvus:oil_growth",
+  "category": "oils",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:oil_growth",
+      "text": "The Oil of Growth can be drunk to regenerate your heath. It is more useful when combined with a candle, it will accelerate the growth of any plants around it."
+    },
+    {
+      "type": "crafting",
+      "recipe": "corvus:oil_of_growth",
+      "recipe2": "corvus:candle_growth"
+    }
+  ]
+}

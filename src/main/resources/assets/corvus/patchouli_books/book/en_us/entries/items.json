@@ -1,0 +1,15 @@
+{
+  "name": "Your belongings in the Forest",
+  "icon": "minecraft:chest",
+  "category": "gaia",
+  "pages": [
+    {
+      "type": "text",
+      "text": "You can not bring your items into the Forest and you can not bring items found in the forest out again.$(br)You can transfer items through the use on an Ender Chest."
+    },
+    {
+      "type": "crafting",
+      "recipe": "minecraft:ender_chest"
+    }
+  ]
+}

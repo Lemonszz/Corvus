@@ -1,0 +1,35 @@
+{
+  "name": "Helpful Links",
+  "icon": "corvus:breathing_tulip",
+  "category": "links",
+  "pages": [
+    {
+      "type": "link",
+      "title": "Discord",
+      "text": "Get help or discuss the mod in our Discord server in the #corvus channel",
+      "url": "https://discord.gg/SyPnhBp",
+      "link_text": "Join Discord Server"
+    },
+    {
+      "type": "link",
+      "title": "Bug Reports",
+      "text": "Please post any bugs you find on the issue tracker",
+      "url": "https://github.com/Lemonszz/Corvus/issues",
+      "link_text": "Open Issue Tracker"
+    },
+    {
+      "type": "link",
+      "title": "Curseforge",
+      "text": "The Curseforge page is the ONLY place to download this mod. Check it out for some extra information!",
+      "url": "https://minecraft.curseforge.com/projects/corvus",
+      "link_text": "Open Curseforge Page"
+    },
+    {
+      "type": "link",
+      "title": "Github",
+      "text": "This mod is open source - check it out!",
+      "url": "https://github.com/Lemonszz/Corvus",
+      "link_text": "Open Github"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Lavender",
+  "icon": "corvus:lavender",
+  "category": "plants",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:lavender_seeds",
+      "text": "Lavender seeds can be found in Dark Oak Forests.$(br)These seeds will only grow with the assistance of a Candle of Growth"
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:wormwood",
+      "text": "Wormwood is a plant with many properties, it can be used in magical oils and aid you in rituals."
+    }
+  ]
+}

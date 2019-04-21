@@ -1,0 +1,20 @@
+{
+  "name": "Corvus Flap",
+  "icon": "minecraft:feather",
+  "category": "spellcasting",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "corvus:Crow",
+      "text": "",
+      "offset": -0.25,
+      "scale": 1.5,
+      "text": "Unlocked by taming a crow."
+    },
+    {
+      "type": "text",
+      "title": "Corvus Flap",
+      "text": "The Corvus flap ability transforms the caster into a crow as the leap forward."
+    }
+  ]
+}

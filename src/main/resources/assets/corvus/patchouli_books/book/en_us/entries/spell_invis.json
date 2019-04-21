@@ -1,0 +1,16 @@
+{
+  "name": "Conceal",
+  "icon": "minecraft:potion",
+  "category": "spellcasting",
+  "pages": [
+    {
+      "type": "text",
+      "text": "Unlocked by being under the effects of invisibility and slow fall at the same time."
+    },
+    {
+      "type": "text",
+      "title": "Conceal",
+      "text": "The conceal ability allows you to be fully invisible to every creature around you."
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Entering the Forest",
+  "icon": "corvus:wiser_gem",
+  "category": "gaia",
+  "pages": [
+    {
+      "type": "text",
+      "text": "You can enter the Forest of Gaia by casting the To Gaia's Land ritual"
+    }
+  ]
+}

@@ -80,5 +80,20 @@
     "sounds":[
       "corvus:licenced/wendigo_attack"
     ]
+  },
+  "item_summon":{
+    "category": "blocks",
+    "sounds":[
+      "corvus:licenced/ice_1",
+      "corvus:licenced/ice_2"
+    ]
+  },
+  "spell_generic":{
+    "category": "blocks",
+    "sounds":[
+      "corvus:licenced/spell_1",
+      "corvus:licenced/spell_2",
+      "corvus:licenced/spell_3"
+    ]
   }
 }

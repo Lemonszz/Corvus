@@ -5,6 +5,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import party.lemons.corvus.gen.gaia.dimension.GaiaDimension;
@@ -12,6 +13,7 @@ import party.lemons.corvus.handler.AttunedEffectHandler;
 import party.lemons.corvus.handler.EffectHandler;
 import party.lemons.corvus.init.CorvusBlocks;
 import party.lemons.corvus.init.CorvusItems;
+import party.lemons.corvus.init.CorvusSounds;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +32,9 @@ public class RitualGrowthOfBreath extends Ritual
 	{
 		if(!world.isRemote)
 		{
+			float pitchOffset = (world.rand.nextFloat() / 5) * (world.rand.nextBoolean() ? 1 : -1);
+			world.playSound(null, pos, CorvusSounds.ITEM_SUMMON, SoundCategory.BLOCKS, 1F, 1F + pitchOffset);
+
 			EffectHandler.performEffect(EffectHandler.STUNNING_DAHLIA, pos, world);
 			world.setBlockToAir(pos);
 			ItemStack dropStack = new ItemStack(CorvusBlocks.BREATHING_TULIP);

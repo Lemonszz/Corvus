@@ -1,0 +1,5 @@
+{
+  "name": "Spell Casting",
+  "description": "Spells are unlocked though the advancement system, check out the Corvus advancements.$(br)Spells are selected within the Grimoire and cast with the cast key (Default: C).$(br)All spells require you to have casted the Awaken ritual.",
+  "icon": "corvus:grimoire"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "The Flowers of Gaia",
+  "icon": "corvus:stunning_dahlia",
+  "category": "plants",
+  "pages": [
+    {
+      "type": "text",
+      "text": "The Forest of Gaia contains many plants not found in this plane, they often have odd effects that may be useful."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:stunning_dahlia",
+      "text": "The Stunning Dahlia can be found within the Forest of Gaia.$(br)The plant is stubborn and can not be harvested by normal means.$(br)They have a certain affinity with Diamonds and they can be used to weaken the plant.$(br)When a living creature smells this plant, it seems to go into a daze."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:lily_toxic",
+      "text": "The Lily of the Toxic can be found within the Forest of Gaia.$(br)The plant is poison to the touch, handle with care."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:blazing_tulip",
+      "text": "The Blazing Tulip can be found within the Forest of Gaia.$(br)This plant is very hot to the touch.$(br)Can be ground into a powder."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:blood_rose",
+      "text": "The Blood Rose can be found within the Forest of Gaia.$(br)Has so many deadly thorns, this plant is almost impossible to handle responsibly."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:bloom_of_death",
+      "text": "The Bloom of Death can be found within the Forest of Gaia.$(br)This flower is a lot harder to find than the other flowers in the Forest as is prefers dark areas.$(br)An overwhelming sense of dread falls upon anyone who dares hold it."
+    }
+  ]
+}

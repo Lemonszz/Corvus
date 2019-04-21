@@ -1,0 +1,11 @@
+{
+  "name": " ",
+  "icon": "empty",
+  "category": "rituals",
+  "pages": [
+    {
+      "type": "empty",
+      "draw_filler": false
+    }
+  ]
+}

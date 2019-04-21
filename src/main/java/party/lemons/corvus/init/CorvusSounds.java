@@ -26,6 +26,8 @@ public class CorvusSounds
 	public static final SoundEvent WENDIGO = SoundEvents.ENTITY_PARROT_EAT;
 	public static final SoundEvent WENDIGO_HURT = SoundEvents.ENTITY_PARROT_EAT;
 	public static final SoundEvent WENDIGO_ATTACK = SoundEvents.ENTITY_PARROT_EAT;
+	public static final SoundEvent ITEM_SUMMON = SoundEvents.ENTITY_PARROT_EAT;
+	public static final SoundEvent SPELL_GENERIC = SoundEvents.ENTITY_PARROT_EAT;
 
 	@SubscribeEvent
 	public static void onRegisterSound(RegistryEvent.Register<SoundEvent> event)
@@ -43,7 +45,9 @@ public class CorvusSounds
 				createSound("wendigo_step"),
 				createSound("wendigo"),
 				createSound("wendigo_hurt"),
-				createSound("wendigo_attack")
+				createSound("wendigo_attack"),
+				createSound("item_summon"),
+				createSound("spell_generic")
 		);
 	}
 

@@ -5,6 +5,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -15,6 +16,7 @@ import party.lemons.corvus.Corvus;
 import party.lemons.corvus.init.CorvusBlocks;
 import party.lemons.corvus.init.CorvusNetwork;
 import party.lemons.corvus.init.CorvusPotions;
+import party.lemons.corvus.init.CorvusSounds;
 import party.lemons.corvus.network.MessageDoEffect;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
@@ -48,6 +50,7 @@ public class AttunedEffectHandler
 		if(world.isRemote)
 			return;
 
+		world.playSound(null, pos, CorvusSounds.SPELL_GENERIC, SoundCategory.PLAYERS, 1F, 1F);
 		doEffect(EffectHandler.BLOCK_HIGHLIGHT, pos, world);
 		world.setBlockState(pos, to);
 	}

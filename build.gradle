@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "${mc_version}-1.2.1"
+version = "${mc_version}-1.2.2"
 group = "party.lemons"
 archivesBaseName = "corvus"
 
@@ -39,11 +39,15 @@ repositories {
         name = "ModMaven"
         url = "modmaven.k-4u.nl"
     }
+    maven { url 'https://maven.blamejared.com' }
+
 }
 
 dependencies {
     deobfProvided "party.lemons.lemonlib:lemonlib-1.12.2:1.2.0"
     deobfCompile "mezz.jei:jei_${mc_version}:${jei_version}"
+    compile "vazkii.patchouli:Patchouli:1.0-19.98"
+
 }
 
 processResources {

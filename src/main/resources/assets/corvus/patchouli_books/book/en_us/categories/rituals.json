@@ -1,0 +1,5 @@
+{
+  "name": "Rituals",
+  "description": "Rituals are cast by throwing the required items around a candle and lighting it.$(br)If you have JEI installed, you can see ritual recipes by sneak-right clicking your Grimoire or by looking at the usages of a Candle",
+  "icon": "corvus:candle"
+}

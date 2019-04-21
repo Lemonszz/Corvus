@@ -1,0 +1,18 @@
+{
+  "name": "The Wendigo",
+  "icon": "corvus:cursed_bone",
+  "category": "creatures",
+  "pages": [
+    {
+      "type": "entity",
+      "entity": "corvus:wendigo",
+      "text": "",
+      "offset": 0,
+      "scale": 1.0
+    },
+    {
+      "type": "text",
+      "text": "Wendigos can be found in Forests and the End. They can only be seen by those who have awakened and they will only target those who can see them."
+    }
+  ]
+}

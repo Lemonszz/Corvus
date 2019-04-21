@@ -1,0 +1,13 @@
+{
+  "name": "Book of Crows",
+  "landing_text": "A guide to the mysterious word of crows",
+  "version": 1,
+  "subtitle": "A guide to Corvus",
+  "show_progress": false,
+  "model": "corvus:book",
+  "book_texture": "patchouli:textures/gui/book_gray.png",
+  "open_sound": "corvus:open_grimoire",
+  "index_icon": "minecraft:book",
+  "creative_tab": "corvus",
+  "advancements_tab": "corvus"
+}

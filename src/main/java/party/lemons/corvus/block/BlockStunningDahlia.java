@@ -16,6 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import party.lemons.corvus.handler.EffectHandler;
+import party.lemons.corvus.init.CorvusSounds;
 
 import java.util.Random;
 
@@ -46,6 +47,10 @@ public class BlockStunningDahlia extends BlockCorvusFlower
 			playerIn.swingArm(hand);
 			if(!world.isRemote)
 			{
+				float pitchOffset = (world.rand.nextFloat() / 5) * (world.rand.nextBoolean() ? 1 : -1);
+				world.playSound(null, pos, CorvusSounds.ITEM_SUMMON, SoundCategory.BLOCKS, 1F, 1F + pitchOffset);
+
+
 				EffectHandler.performEffect(EffectHandler.STUNNING_DAHLIA, pos, world);
 				world.setBlockToAir(pos);
 				ItemStack dropStack = new ItemStack(this);

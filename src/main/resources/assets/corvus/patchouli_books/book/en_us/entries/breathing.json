@@ -1,0 +1,16 @@
+{
+  "name": "Breathing in the Forest",
+  "icon": "corvus:breathing_tulip",
+  "category": "gaia",
+  "pages": [
+    {
+      "type": "text",
+      "text": "It's impossible for humans to breath within the forest without assistance. A breathing tulip will allow the holder to breath freely."
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:breathing_tulip",
+      "text": "The breathing tulip is summoned via the Growth of Breath ritual."
+    }
+  ]
+}

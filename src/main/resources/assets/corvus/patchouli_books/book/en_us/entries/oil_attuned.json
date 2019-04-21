@@ -1,0 +1,16 @@
+{
+  "name": "Oil of the Attuned",
+  "icon": "corvus:oil_attuned",
+  "category": "oils",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:oil_attuned",
+      "text": "The Oil of the Attuned will make you connect with the world around you.$(br)Drinking this oil will allow you to change the properties of iron and crystal quartz ore.$(br)You will be able to cast more advanced rituals."
+    },
+    {
+      "type": "crafting",
+      "recipe": "corvus:oil_of_the_attuned"
+    }
+  ]
+}

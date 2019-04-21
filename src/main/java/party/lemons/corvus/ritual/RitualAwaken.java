@@ -3,6 +3,7 @@ package party.lemons.corvus.ritual;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import party.lemons.corvus.Corvus;
@@ -11,6 +12,7 @@ import party.lemons.corvus.block.tilentity.TileEntityBreathingTulip;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.handler.EffectHandler;
+import party.lemons.corvus.init.CorvusSounds;
 
 public class RitualAwaken extends Ritual
 {
@@ -38,6 +40,9 @@ public class RitualAwaken extends Ritual
 					{
 						TileEntityBreathingTulip tulip = (TileEntityBreathingTulip) world.getTileEntity(checkPos);
 						tulip.setDamage(0);
+						float pitchOffset = (world.rand.nextFloat() / 5) * (world.rand.nextBoolean() ? 1 : -1);
+						world.playSound(null, pos, CorvusSounds.ITEM_SUMMON, SoundCategory.BLOCKS, 1F, 1F + pitchOffset);
+
 						EffectHandler.performEffect(EffectHandler.STUNNING_DAHLIA, checkPos, world);
 					}
 

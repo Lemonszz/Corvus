@@ -1,0 +1,17 @@
+{
+  "name": "Ores",
+  "icon": "corvus:crystal_quartz",
+  "category": "ores",
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "corvus:crystal_quartz_ore",
+      "text": "Crystal Quartz Ore can be found in the Overworld and more commonly in the Forest of Gaia"
+    },
+    {
+      "type": "spotlight",
+      "item": "corvus:wiser_gem_ore",
+      "text": "Wiser Gem Ore can be found within the Forest of Gaia"
+    }
+  ]
+}

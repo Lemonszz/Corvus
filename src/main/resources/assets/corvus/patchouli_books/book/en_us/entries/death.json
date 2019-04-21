@@ -1,0 +1,11 @@
+{
+  "name": "Leaving the Forest",
+  "icon": "minecraft:bone",
+  "category": "gaia",
+  "pages": [
+    {
+      "type": "text",
+      "text": "You can not leave the Forest by traditional means. You must die. You will not lose your items."
+    }
+  ]
+}
