@@ -98,15 +98,14 @@ public class CorvusCapabilities
 					(EntityPlayerMP) event.getEntityPlayer());
 		}
 
-		////
-		System.out.println("Respawn switch");
+		System.out.println(event.isWasDeath());
 
 		IInventorySwitch inventorySwitch = event.getOriginal().getCapability(InventorySwitchCapability.CAPABILITY, null);
 		NBTTagList tagList = inventorySwitch.serializeNBT();
 
 		IInventorySwitch inventorySwitchNew = event.getEntityPlayer().getCapability(InventorySwitchCapability.CAPABILITY, null);
-		inventorySwitch.deserializeNBT(tagList);
-		inventorySwitchNew.swapInventory(event.getEntityPlayer());
+		inventorySwitchNew.deserializeNBT(tagList);
+		//inventorySwitchNew.swapInventory(event.getEntityPlayer());
 	}
 
 	@SubscribeEvent
