@@ -1,5 +1,6 @@
 package party.lemons.corvus.init;
 
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
@@ -31,6 +32,9 @@ public class CorvusItems
 	public static final Item CURSED_BONE = Items.AIR;
 	public static final Item SPECIAL_STICK = Items.AIR;
 	public static final Item WISER_GEM = Items.AIR;
+	public static final Item ORB_OF_IMPRISONMENT = Items.AIR;
+	public static final Item FERAL_CLAW = Items.AIR;
+	public static final Item FLORA_OF_VITALITY = Items.AIR;
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
@@ -73,5 +77,8 @@ public class CorvusItems
 		ItemRegistry.registerItem(new ItemSpecialStick(), "special_stick");
 
 		ItemRegistry.registerItem(new ItemBreathingTulip(CorvusBlocks.BREATHING_TULIP), "breathing_tulip", "flower", "tulip");
-	}
+		ItemRegistry.registerItem(new ItemOrbOfImprisionment(), "orb_of_imprisonment");
+		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.ATTACK_DAMAGE, 3, 30), "feral_claw");
+		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.MAX_HEALTH, 6, 60), "flora_of_vitality");
+}
 }

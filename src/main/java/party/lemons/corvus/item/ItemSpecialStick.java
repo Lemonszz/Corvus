@@ -1,4 +1,4 @@
-package party.lemons.corvus.init;
+package party.lemons.corvus.item;
 
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
