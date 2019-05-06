@@ -11,7 +11,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemOrbOfImprisionment extends ItemModel
 {
@@ -21,15 +20,18 @@ public class ItemOrbOfImprisionment extends ItemModel
 	}
 
 	@Override
-	public boolean itemInteractionForEntity(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand)
+	public boolean itemInteractionForEntity(ItemStack dickheadItemStack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand)
 	{
+		ItemStack stack = playerIn.getHeldItem(hand);
+
 		//If the entity is a boss or the orb already has an entity or the target is a player, don't continue
 		if(!target.isNonBoss() || target instanceof EntityPlayer || hasEntity(stack))
 			return false;
 
+
+			putEntity(stack, target);
 		if(!playerIn.world.isRemote)
 		{
-			putEntity(stack, target);
 			target.setDead();
 		}
 		return true;
@@ -48,14 +50,11 @@ public class ItemOrbOfImprisionment extends ItemModel
 
 			stack.setTagCompound(null);
 		}
-		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
+		return EnumActionResult.SUCCESS;
 	}
 
 	private void putEntity(ItemStack stack, Entity entity)
 	{
-		if(entity.world.isRemote)
-			return;
-
 		NBTTagCompound tags = stack.getTagCompound();
 		if(tags == null)
 			tags = new NBTTagCompound();
