@@ -11,6 +11,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class ItemOrbOfImprisionment extends ItemModel
 {
@@ -41,7 +42,10 @@ public class ItemOrbOfImprisionment extends ItemModel
 
 		if(!worldIn.isRemote && hasEntity(stack))
 		{
-			EntityList.createEntityFromNBT(stack.getTagCompound().getCompoundTag("entity"), worldIn);
+			Entity e = EntityList.createEntityFromNBT(stack.getTagCompound().getCompoundTag("entity"), worldIn);
+			e.setPositionAndUpdate(pos.getX() + hitX, pos.getY() + hitY, pos.getZ() + hitZ);
+			worldIn.spawnEntity(e);
+
 			stack.setTagCompound(null);
 		}
 		return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
@@ -66,7 +70,7 @@ public class ItemOrbOfImprisionment extends ItemModel
 
 	private boolean hasEntity(ItemStack stack)
 	{
-		if(!stack.hasTagCompound())     //Always false??
+		if(!stack.hasTagCompound())
 			return false;
 
 		return stack.getTagCompound().hasKey("entity");
