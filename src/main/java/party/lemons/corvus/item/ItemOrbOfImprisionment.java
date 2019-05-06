@@ -22,7 +22,7 @@ public class ItemOrbOfImprisionment extends ItemModel
 	@Override
 	public boolean itemInteractionForEntity(ItemStack dickheadItemStack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand)
 	{
-		ItemStack stack = playerIn.getHeldItem(hand);
+		ItemStack stack = playerIn.getHeldItem(hand);   //use the REAL itemstack from the player's hand since creative mode gets passed a copy
 
 		//If the entity is a boss or the orb already has an entity or the target is a player, don't continue
 		if(!target.isNonBoss() || target instanceof EntityPlayer || hasEntity(stack))
