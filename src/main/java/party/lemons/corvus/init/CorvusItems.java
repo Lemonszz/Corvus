@@ -77,7 +77,7 @@ public class CorvusItems
 		ItemRegistry.registerItem(new ItemSpecialStick(), "special_stick");
 
 		ItemRegistry.registerItem(new ItemBreathingTulip(CorvusBlocks.BREATHING_TULIP), "breathing_tulip", "flower", "tulip");
-		ItemRegistry.registerItem(new ItemOrbOfImprisionment(), "orb_of_imprisonment");
+		ItemRegistry.registerItem(new ItemOrbOfImprisonment(), "orb_of_imprisonment");
 		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.ATTACK_DAMAGE, 3, 30), "feral_claw");
 		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.MAX_HEALTH, 6, 60), "flora_of_vitality");
 }

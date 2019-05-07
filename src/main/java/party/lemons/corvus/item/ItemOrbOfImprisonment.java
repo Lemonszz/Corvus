@@ -12,9 +12,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemOrbOfImprisionment extends ItemModel
+public class ItemOrbOfImprisonment extends ItemModel
 {
-	public ItemOrbOfImprisionment()
+	public ItemOrbOfImprisonment()
 	{
 		setMaxStackSize(1);
 	}
@@ -28,8 +28,7 @@ public class ItemOrbOfImprisionment extends ItemModel
 		if(!target.isNonBoss() || target instanceof EntityPlayer || hasEntity(stack))
 			return false;
 
-
-			putEntity(stack, target);
+		putEntity(stack, target);
 		if(!playerIn.world.isRemote)
 		{
 			target.setDead();

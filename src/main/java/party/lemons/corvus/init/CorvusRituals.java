@@ -53,6 +53,13 @@ public class CorvusRituals
 						of(CorvusItems.OIL_PROTECTIVE),
 						of(CorvusBlocks.BLOOD_ROSE),
 						of("tulip")
+				).setRegistryName(Corvus.MODID, "growth_of_breath"),
+
+				new RitualGrowthOfBreath(
+						of(CorvusItems.OIL_GROWTH),
+						of(CorvusItems.OIL_PROTECTIVE),
+						of(CorvusBlocks.BLOOD_ROSE),
+						of("tulip")
 				).setRegistryName(Corvus.MODID, "growth_of_breath")
 		);
 	}
