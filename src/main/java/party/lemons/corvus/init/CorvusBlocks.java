@@ -46,6 +46,9 @@ public class CorvusBlocks
 	public static final Block STUNNING_DAHLIA = Blocks.AIR;
 	public static final Block BLOOM_OF_DEATH = Blocks.AIR;
 
+	public static final Block MUD = Blocks.AIR;
+	public static final Block TWILIGHT_GARGET = Blocks.AIR;
+
 
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
@@ -76,6 +79,9 @@ public class CorvusBlocks
 		BlockRegistry.registerBlock(new BlockBloodRose(), "blood_rose", "flower");
 		BlockRegistry.registerBlock(new BlockStunningDahlia(), "stunning_dahlia", "flower");
 		BlockRegistry.registerBlock(new BlockBloomOfDeath(), "bloom_of_death", "flower");
+
+		BlockRegistry.registerBlock(new BlockMud(), "mud", "mud", "dirt");
+		BlockRegistry.registerBlock(new BlockCorvusFlower(), "twilight_garget", "flower", "dyePurple");
 
 		GameRegistry.registerTileEntity(TileEntityEffectCandle.class, new ResourceLocation(Corvus.MODID, "candle"));
 		GameRegistry.registerTileEntity(TileEntityBreathingTulip.class, new ResourceLocation(Corvus.MODID, "breathing_tulip"));

@@ -7,8 +7,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import party.lemons.corvus.capability.gaiabreath.GaiaBreathUtil;
 import party.lemons.corvus.capability.gaiabreath.IGaiaBreath;
-import party.lemons.corvus.capability.spirit.ISpirit;
-import party.lemons.corvus.capability.spirit.SpiritCapability;
 
 public class MessageSyncGaiaBreath implements IMessage
 {

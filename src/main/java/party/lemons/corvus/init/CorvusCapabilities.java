@@ -3,6 +3,7 @@ package party.lemons.corvus.init;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
+import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ResourceLocation;
@@ -29,6 +30,7 @@ import party.lemons.corvus.capability.inventoryswitch.IInventorySwitch;
 import party.lemons.corvus.capability.inventoryswitch.InventorySwitchCapability;
 import party.lemons.corvus.capability.inventoryswitch.InventorySwitchContainer;
 import party.lemons.corvus.capability.inventoryswitch.InventorySwitchProvider;
+import party.lemons.corvus.capability.progression.*;
 import party.lemons.corvus.capability.projection.IProjection;
 import party.lemons.corvus.capability.projection.ProjectionCapability;
 import party.lemons.corvus.capability.projection.ProjectionCapabilityProvider;
@@ -49,6 +51,7 @@ public class CorvusCapabilities
 		CapabilityManager.INSTANCE.register(IProjection.class, new ProjectionCapability.CapabilityCrow(), ProjectionContainer::new);
 		CapabilityManager.INSTANCE.register(IGaiaBreath.class, new GaiaBreathCapability.CapabilityGaiaBreath(), GaiaBreathContainer::new);
 		CapabilityManager.INSTANCE.register(IInventorySwitch.class, new InventorySwitchCapability.CapabilityInventorySwitch(), InventorySwitchContainer::new);
+		CapabilityManager.INSTANCE.register(IPlayerProgression.class, new PlayerProgressionCapability.CapabilityPlayerProgression(), PlayerProgression::new);
 	}
 
 	@SubscribeEvent
@@ -61,6 +64,7 @@ public class CorvusCapabilities
 			event.addCapability(new ResourceLocation(Corvus.MODID, "projection"), new ProjectionCapabilityProvider(new ProjectionContainer()));
 			event.addCapability(new ResourceLocation(Corvus.MODID, "gaia_breath"), new GaiaBreathContainerProvider(new GaiaBreathContainer()));
 			event.addCapability(new ResourceLocation(Corvus.MODID, "inventory_switch"), new InventorySwitchProvider(new InventorySwitchContainer()));
+			event.addCapability(new ResourceLocation(Corvus.MODID, "player_progression"), new PlayerProgressionProvider(new PlayerProgression()));
 		}
 	}
 
@@ -73,6 +77,7 @@ public class CorvusCapabilities
 
 			SpiritUtil.syncSpirit(player);
 			GaiaBreathUtil.syncGaiaBreath(player);
+			ProgressionUtil.syncProgression(player);
 
 			if(player instanceof EntityPlayerMP)
 				CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(SpiritUtil.getSpirit(player).isAwakened()), (EntityPlayerMP) player);
@@ -84,11 +89,10 @@ public class CorvusCapabilities
 	{
 		SpiritContainer container = (SpiritContainer) SpiritUtil.getSpirit(event.getOriginal());
 		NBTTagCompound tags = (NBTTagCompound) SpiritCapability.CAPABILITY.writeNBT(container, null);
-
 		SpiritContainer containerNew = (SpiritContainer) SpiritUtil.getSpirit(event.getEntityPlayer());
 		SpiritCapability.CAPABILITY.readNBT(containerNew, null, tags);
-
 		SpiritUtil.syncSpirit(event.getEntityPlayer());
+
 		if(event.getEntityPlayer() instanceof EntityPlayerMP)
 		{
 			CorvusNetwork.INSTANCE.sendTo(new MessageSyncAwakened(
@@ -98,14 +102,17 @@ public class CorvusCapabilities
 					(EntityPlayerMP) event.getEntityPlayer());
 		}
 
-		System.out.println(event.isWasDeath());
-
 		IInventorySwitch inventorySwitch = event.getOriginal().getCapability(InventorySwitchCapability.CAPABILITY, null);
 		NBTTagList tagList = inventorySwitch.serializeNBT();
 
 		IInventorySwitch inventorySwitchNew = event.getEntityPlayer().getCapability(InventorySwitchCapability.CAPABILITY, null);
 		inventorySwitchNew.deserializeNBT(tagList);
-		//inventorySwitchNew.swapInventory(event.getEntityPlayer());
+
+		IPlayerProgression oldProgress = ProgressionUtil.getProgression(event.getOriginal());
+		NBTBase progressionList = PlayerProgressionCapability.CAPABILITY.writeNBT(oldProgress, null);
+		IPlayerProgression newProgress = ProgressionUtil.getProgression(event.getEntityPlayer());
+		PlayerProgressionCapability.CAPABILITY.readNBT(newProgress , null, progressionList);
+		ProgressionUtil.syncProgression(event.getEntityPlayer());
 	}
 
 	@SubscribeEvent

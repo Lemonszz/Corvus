@@ -2,10 +2,9 @@ package party.lemons.corvus.capability.gaiabreath;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
-import party.lemons.corvus.capability.spirit.ISpirit;
-import party.lemons.corvus.capability.spirit.SpiritCapability;
 import party.lemons.corvus.init.CorvusNetwork;
 import party.lemons.corvus.network.MessageSyncGaiaBreath;
+import party.lemons.corvus.network.MessageSyncProgression;
 
 public class GaiaBreathUtil
 {

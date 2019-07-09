@@ -24,6 +24,7 @@ public class CorvusNetwork
 		INSTANCE.registerMessage(MessageSyncAwakened.Handler.class, MessageSyncAwakened.class, id++, Side.CLIENT);
 		INSTANCE.registerMessage(MessageSyncGaiaBreath.Handler.class, MessageSyncGaiaBreath.class, id++, Side.CLIENT);
 		INSTANCE.registerMessage(MessageDoEffect.Handler.class, MessageDoEffect.class, id++, Side.CLIENT);
+		INSTANCE.registerMessage(MessageSyncProgression.Handler.class, MessageSyncProgression.class, id++, Side.CLIENT);
 	}
 
 	private static int id = 0;

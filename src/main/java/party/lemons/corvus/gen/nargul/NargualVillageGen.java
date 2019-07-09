@@ -7,7 +7,6 @@ import net.minecraft.util.Mirror;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Rotations;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -24,7 +23,7 @@ public class NargualVillageGen extends WorldGenerator
 {
 	public static List<Biome> VILLAGE_SPAWN_BIOMES = new ArrayList<>();
 	public static List<ResourceLocation> BUILDINGS = new ArrayList<>();
-	public static int MAX_DISTANCE = 40;
+	public static int MAX_DISTANCE = 25;
 	public static int MIN_DISTANCE = 20;
 
 	@Override
@@ -91,5 +90,6 @@ public class NargualVillageGen extends WorldGenerator
 		VILLAGE_SPAWN_BIOMES.add(Biomes.MUTATED_JUNGLE_EDGE);
 
 		BUILDINGS.add(new ResourceLocation(Corvus.MODID, "jungle_house_1"));
+		BUILDINGS.add(new ResourceLocation(Corvus.MODID, "jungle_house_2"));
 	}
 }

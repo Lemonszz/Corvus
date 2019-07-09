@@ -18,7 +18,7 @@ import party.lemons.lemonlib.gen.feature.FeatureChance;
 @Mod.EventBusSubscriber(modid = Corvus.MODID)
 public class NagualVillageGenerator
 {
-	private static final WorldGenerator VILLAGE_GEN = new FeatureChance(new NargualVillageGen(), 100);
+	private static final WorldGenerator VILLAGE_GEN = new FeatureChance(new NargualVillageGen(), 500);
 
 	@SubscribeEvent
 	public static void onBiomeDecorate(PopulateChunkEvent.Pre event)
