@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumActionResult;
@@ -12,7 +13,7 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemOrbOfImprisonment extends ItemModel
+public class ItemOrbOfImprisonment extends Item
 {
 	public ItemOrbOfImprisonment()
 	{
@@ -66,7 +67,7 @@ public class ItemOrbOfImprisonment extends ItemModel
 		stack.setTagCompound(tags);
 	}
 
-	private boolean hasEntity(ItemStack stack)
+	public static boolean hasEntity(ItemStack stack)
 	{
 		if(!stack.hasTagCompound())
 			return false;

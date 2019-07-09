@@ -1,8 +1,12 @@
 package party.lemons.corvus.init;
 
+import net.minecraft.client.renderer.block.model.ModelBakery;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.client.registry.ClientRegistry;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -16,6 +20,7 @@ import party.lemons.corvus.entity.EntityWendigo;
 import party.lemons.corvus.entity.render.RenderCrow;
 import party.lemons.corvus.entity.render.RenderFamiliar;
 import party.lemons.corvus.entity.render.RenderWendigo;
+import party.lemons.corvus.item.ItemOrbOfImprisonment;
 import party.lemons.lemonlib.event.InitEvent;
 
 @Mod.EventBusSubscriber(modid = Corvus.MODID, value = Side.CLIENT)
@@ -31,6 +36,22 @@ public class ClientInit
 		RenderingRegistry.registerEntityRenderingHandler(EntityWendigo.class, RenderWendigo::new);
 
 		ClientRegistry.registerKeyBinding(KEY_SPELL);
+	}
+
+	@SubscribeEvent
+	public static void onItemModelRegister(ModelRegistryEvent event)
+	{
+		ModelResourceLocation orb_off = new ModelResourceLocation(CorvusItems.ORB_OF_IMPRISONMENT.getRegistryName(), "inventory");
+		ModelResourceLocation orb_on = new ModelResourceLocation(CorvusItems.ORB_OF_IMPRISONMENT.getRegistryName() + "_on", "inventory");
+		ModelBakery.registerItemVariants(CorvusItems.ORB_OF_IMPRISONMENT, orb_off, orb_on);
+
+		ModelLoader.setCustomMeshDefinition(CorvusItems.ORB_OF_IMPRISONMENT, stack->
+		{
+			if(ItemOrbOfImprisonment.hasEntity(stack))
+				return orb_on;
+
+			return orb_off;
+		});
 	}
 
 	@SubscribeEvent

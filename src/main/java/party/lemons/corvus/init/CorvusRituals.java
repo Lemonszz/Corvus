@@ -1,6 +1,7 @@
 package party.lemons.corvus.init;
 
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -55,12 +56,12 @@ public class CorvusRituals
 						of("tulip")
 				).setRegistryName(Corvus.MODID, "growth_of_breath"),
 
-				new RitualGrowthOfBreath(
-						of(CorvusItems.OIL_GROWTH),
-						of(CorvusItems.OIL_PROTECTIVE),
-						of(CorvusBlocks.BLOOD_ROSE),
-						of("tulip")
-				).setRegistryName(Corvus.MODID, "growth_of_breath")
+				new RitualItemSummon(new ItemStack(CorvusItems.ORB_OF_IMPRISONMENT),
+						of(CorvusBlocks.WISER_GEM_BLOCK),
+						of("gemCrystalQuartz"),
+						of(Items.SPIDER_EYE),
+						of(Blocks.WEB)
+				).setRegistryName(Corvus.MODID, "conjuration_of_imprisonment")
 		);
 	}
 
@@ -68,17 +69,14 @@ public class CorvusRituals
 	{
 		return new OreIngredient(oreDict);
 	}
-
 	public static Ingredient of(Item item)
 	{
 		return of(new ItemStack(item));
 	}
-
 	public static Ingredient of(Block block)
 	{
 		return of(new ItemStack(block));
 	}
-
 	public static Ingredient of(ItemStack stack)
 	{
 		return Ingredient.fromStacks(stack);

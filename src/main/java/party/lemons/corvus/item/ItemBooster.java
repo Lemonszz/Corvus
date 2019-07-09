@@ -14,7 +14,7 @@ import net.minecraft.util.EnumHand;
 
 import java.util.UUID;
 
-public class ItemBooster extends Item
+public class ItemBooster extends ItemModel
 {
 	private final IAttribute boostAttribute;
 	private final int boostAmt;

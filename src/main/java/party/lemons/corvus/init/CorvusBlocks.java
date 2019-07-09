@@ -25,6 +25,7 @@ public class CorvusBlocks
 {
 	public static final Block CRYSTAL_QUARTZ_ORE = Blocks.AIR;
 	public static final Block WISER_GEM_ORE = Blocks.AIR;
+	public static final Block WISER_GEM_BLOCK = Blocks.AIR;
 
 	public static final Block CANDLE = Blocks.AIR;
 	public static final Block CANDLE_GROWTH = Blocks.AIR;

@@ -18,34 +18,13 @@ import party.lemons.corvus.init.CorvusSounds;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RitualGrowthOfBreath extends Ritual
+public class RitualGrowthOfBreath extends RitualItemSummon
 {
 	private static ItemStack STACK_OIL = new ItemStack(CorvusItems.OIL_ATTUNED);
 
 	public RitualGrowthOfBreath(Ingredient... ingredients)
 	{
-		super(ingredients);
-	}
-
-	@Override
-	public void perform(World world, BlockPos pos, EntityPlayer player)
-	{
-		if(!world.isRemote)
-		{
-			float pitchOffset = (world.rand.nextFloat() / 5) * (world.rand.nextBoolean() ? 1 : -1);
-			world.playSound(null, pos, CorvusSounds.ITEM_SUMMON, SoundCategory.BLOCKS, 1F, 1F + pitchOffset);
-
-			EffectHandler.performEffect(EffectHandler.STUNNING_DAHLIA, pos, world);
-			world.setBlockToAir(pos);
-			ItemStack dropStack = new ItemStack(CorvusBlocks.BREATHING_TULIP);
-			EntityItem entityitem = new EntityItem(world, pos.getX() + 0.5F, pos.getY() + 0.5F, pos.getZ() + 0.5F, dropStack);
-			entityitem.motionX = 0;
-			entityitem.motionY = 0.25F;
-			entityitem.motionZ = 0;
-			entityitem.velocityChanged = true;
-			entityitem.setDefaultPickupDelay();
-			world.spawnEntity(entityitem);
-		}
+		super(new ItemStack(CorvusBlocks.BREATHING_TULIP), ingredients);
 	}
 
 	@Override
