@@ -30,9 +30,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.capability.progression.ProgressionUtil;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.init.CorvusItems;
+import party.lemons.corvus.init.CorvusProgression;
 import party.lemons.corvus.init.CorvusSounds;
 import party.lemons.corvus.init.CorvusSpells;
 
@@ -145,8 +147,10 @@ public class EntityCrow extends EntityTameable
 			{
 				if (this.rand.nextInt(5) == 0 && !net.minecraftforge.event.ForgeEventFactory.onAnimalTame(this, player))
 				{
-					if(!AdvancementHandler.hasAdvancement((EntityPlayerMP) player, new ResourceLocation(Corvus.MODID, "corvus/awaken")))
+					if(!ProgressionUtil.hasProgression(player, CorvusProgression.AWAKEN))
 						return true;
+
+					ProgressionUtil.tryUnlockProgression(player, CorvusProgression.TAME_CROW);
 
 					this.setTamedBy(player);
 					this.playTameEffect(true);

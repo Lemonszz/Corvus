@@ -35,6 +35,8 @@ public class CorvusItems
 	public static final Item ORB_OF_IMPRISONMENT = Items.AIR;
 	public static final Item FERAL_CLAW = Items.AIR;
 	public static final Item FLORA_OF_VITALITY = Items.AIR;
+	public static final Item STAR = Items.AIR;
+	public static final Item SPELLBOOK = Items.AIR;
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
@@ -80,5 +82,9 @@ public class CorvusItems
 		ItemRegistry.registerItem(new ItemOrbOfImprisonment(), "orb_of_imprisonment");
 		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.ATTACK_DAMAGE, 3, 30), "feral_claw");
 		ItemRegistry.registerItem(new ItemBooster(SharedMonsterAttributes.MAX_HEALTH, 6, 60), "flora_of_vitality");
+
+		ItemRegistry.setup(Corvus.MODID, event.getRegistry(), null);
+		ItemRegistry.registerItem(new ItemModel(), "star");
+		ItemRegistry.registerItem(new ItemModel(), "spellbook");
 }
 }

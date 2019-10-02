@@ -61,7 +61,13 @@ public class CorvusRituals
 						of("gemCrystalQuartz"),
 						of(Items.SPIDER_EYE),
 						of(Blocks.WEB)
-				).setRegistryName(Corvus.MODID, "conjuration_of_imprisonment")
+				).setRegistryName(Corvus.MODID, "conjuration_of_imprisonment"),
+
+				new RitualSpawnPoint(
+						of(CorvusBlocks.BLOOD_ROSE),
+						of(CorvusItems.CRYSTAL_QUARTZ),
+						of(Items.COMPASS)
+				).setRegistryName(Corvus.MODID, "awaken_from_reality")
 		);
 	}
 

@@ -24,9 +24,17 @@ public class CorvusTab extends CreativeTabs
 	{
 		super.displayAllRelevantItems(items);
 
+		items.add(makeEgg("crow"));
+		items.add(makeEgg("nagual"));
+		items.add(makeEgg("wendigo"));
+	}
+
+	private ItemStack makeEgg(String entityName)
+	{
 		ItemStack itemstack = new ItemStack(Items.SPAWN_EGG, 1);
-		ItemMonsterPlacer.applyEntityIdToItemStack(itemstack, EntityList.ENTITY_EGGS.get(new ResourceLocation(Corvus.MODID, "crow")).spawnedID);
-		items.add(itemstack);
+		ItemMonsterPlacer.applyEntityIdToItemStack(itemstack, EntityList.ENTITY_EGGS.get(new ResourceLocation(Corvus.MODID,  entityName)).spawnedID);
+
+		return itemstack;
 	}
 
 	@Override

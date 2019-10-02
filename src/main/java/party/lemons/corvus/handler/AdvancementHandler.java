@@ -15,9 +15,11 @@ import net.minecraftforge.event.entity.player.AdvancementEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.capability.progression.ProgressionUtil;
 import party.lemons.corvus.capability.spirit.ISpirit;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
 import party.lemons.corvus.init.CorvusNetwork;
+import party.lemons.corvus.init.CorvusProgression;
 import party.lemons.corvus.init.CorvusSpells;
 import party.lemons.corvus.network.MessageSyncAwakened;
 
@@ -35,9 +37,10 @@ public class AdvancementHandler
 				{
 					EntityPlayerMP playerMP = (EntityPlayerMP) event.getSource().getTrueSource();
 
-					if(!hasAdvancement(playerMP, new ResourceLocation(Corvus.MODID, "corvus/awaken")))
+					if(!ProgressionUtil.hasProgression(playerMP, CorvusProgression.AWAKEN))
 						return;
 
+					ProgressionUtil.tryUnlockProgression(playerMP, CorvusProgression.KILL_WOLF);
 					MinecraftServer server = event.getEntity().getServer();
 
 					try

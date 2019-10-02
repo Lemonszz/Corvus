@@ -5,9 +5,11 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.capability.progression.ProgressionUtil;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.init.CorvusItems;
 import party.lemons.corvus.init.CorvusNetwork;
+import party.lemons.corvus.init.CorvusProgression;
 import party.lemons.corvus.network.MessageSyncSpirit;
 import party.lemons.corvus.spell.Spell;
 
@@ -23,7 +25,7 @@ public class SpiritUtil
 
 		ISpirit spirit = getSpirit(player);
 		List<Spell> sendSpells = spirit.getUnlockedSpells();
-		if(!AdvancementHandler.hasAdvancement((EntityPlayerMP) player, new ResourceLocation(Corvus.MODID, "corvus/awaken")))
+		if(!ProgressionUtil.hasProgression(player, CorvusProgression.AWAKEN))
 		{
 			spirit.setActiveSpell(null);
 			sendSpells = Collections.EMPTY_LIST;
@@ -83,8 +85,7 @@ public class SpiritUtil
 	{
 		if(!player.world.isRemote)
 		{
-			boolean hasAdvancement = AdvancementHandler.hasAdvancement((EntityPlayerMP) player, new ResourceLocation(Corvus.MODID, "corvus/awaken"));
-			if(!hasAdvancement)
+			if(!ProgressionUtil.hasProgression(player, CorvusProgression.AWAKEN))
 			{
 				return false;
 			}
