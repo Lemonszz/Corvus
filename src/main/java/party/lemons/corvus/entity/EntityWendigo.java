@@ -25,8 +25,10 @@ import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.items.ItemStackHandler;
 import party.lemons.corvus.Corvus;
+import party.lemons.corvus.capability.progression.ProgressionUtil;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.init.CorvusItems;
+import party.lemons.corvus.init.CorvusProgression;
 import party.lemons.corvus.init.CorvusSounds;
 
 import javax.annotation.Nullable;
@@ -60,7 +62,7 @@ public class EntityWendigo extends EntityMob
 		{
 			if(e instanceof EntityPlayerMP)
 			{
-				if(AdvancementHandler.hasAdvancement((EntityPlayerMP) e, new ResourceLocation(Corvus.MODID, "corvus/awaken")))
+				if(ProgressionUtil.hasProgression((EntityPlayer) e, CorvusProgression.AWAKEN))
 					return true;
 			}
 			return false;

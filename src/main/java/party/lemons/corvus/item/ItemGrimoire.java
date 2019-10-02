@@ -29,10 +29,10 @@ public class ItemGrimoire extends ItemModel
 				}
 			}
 
-			if(SpiritUtil.getSpirit(playerIn).getUnlockedSpells().size() > 0)
+			//if(SpiritUtil.getSpirit(playerIn).getUnlockedSpells().size() > 0)
 				Corvus.PROXY.openGrimoire();
-			else
-				playerIn.sendStatusMessage(new TextComponentTranslation("corvus.message.grimoire.fail"), true);
+		//	else
+			//	playerIn.sendStatusMessage(new TextComponentTranslation("corvus.message.grimoire.fail"), true);
 		}
 
 		return ActionResult.newResult(EnumActionResult.SUCCESS, stack);

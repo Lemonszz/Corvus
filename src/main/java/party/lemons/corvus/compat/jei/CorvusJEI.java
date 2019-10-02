@@ -14,6 +14,7 @@ import net.minecraft.inventory.Container;
 import net.minecraft.inventory.ContainerPlayer;
 import net.minecraft.item.ItemStack;
 import party.lemons.corvus.init.CorvusBlocks;
+import party.lemons.corvus.init.CorvusItems;
 import party.lemons.corvus.ritual.Ritual;
 import party.lemons.corvus.ritual.RitualRegistry;
 
@@ -36,6 +37,9 @@ public class CorvusJEI implements IModPlugin
 		registry.handleRecipes(Ritual.class, r -> new RitualRecipeWrapper(registry.getJeiHelpers(), r), RitualRecipeCategory.ID);
 		registry.addRecipes(RitualRegistry.REGISTRY.getValuesCollection().stream().filter(r -> !r.isEmpty()).collect(Collectors.toList()), RitualRecipeCategory.ID);
 		registry.addRecipeCatalyst(new ItemStack(CorvusBlocks.CANDLE), RitualRecipeCategory.ID);
+
+		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(CorvusItems.STAR));
+		registry.getJeiHelpers().getIngredientBlacklist().addIngredientToBlacklist(new ItemStack(CorvusItems.SPELLBOOK));
 	}
 
 	public void onRuntimeAvailable(IJeiRuntime jeiRuntime)

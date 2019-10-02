@@ -54,15 +54,32 @@ spell.conceal.name=Conceal
 spell.canis_familiar.name=Canis Familiar
 
 advancements.corvus.awaken.title=Awaken
-advancements.corvus.awaken.description=Perform the awaken ritual
+advancements.corvus.awaken.description=Perform the awaken ritual. See the book of crows for more info.
+
+progression.corvus.awaken.name=Awaken
+progression.corvus.awaken.desc=Perform the awaken ritual
+
 advancements.corvus.kill_baby_wolf.title=Sacrificial Spirit
 advancements.corvus.kill_baby_wolf.description=Murder a puppy
+
+progression.corvus.kill_wolf.name=Sacrificial Spirit
+progression.corvus.kill_wolf.desc=Murder a puppy
+
 advancements.corvus.root.title=Corvus
 advancements.corvus.root.description=Thank you for installing Corvus!
+
 advancements.corvus.spirit.title=Spirit Wannabe
 advancements.corvus.spirit.description=Become invisible while under the effect of a "Oil of Protective Winds"
+
+progression.corvus.spirit.name=Spirit Wannabe
+progression.corvus.spirit.desc=Become invisible while under the effect of a "Oil of Protective Winds"
+
+
 advancements.corvus.tame_crow.title=Corvus Friendus
 advancements.corvus.tame_crow.description=Tame a crow
+
+progression.corvus.tame_crow.name=Corvus Friendus
+progression.corvus.tame_crow.desc=Tame a crow
 
 corvus.message.grimoire.fail=You can't seem to open it
 corvus.message.creativeonly=Creative Only
@@ -78,3 +95,6 @@ corvus:growth_of_breath.name=Growth of Breath
 
 key.coruvs.use=Cast Spell
 key.categories.corvus=Corvus
+
+grimoire.tab.progress=Progress
+grimoire.tab.spells=Spells

@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.entity.EntityCrow;
 import party.lemons.corvus.entity.EntityFamiliar;
+import party.lemons.corvus.entity.EntityNagual;
 import party.lemons.corvus.entity.EntityWendigo;
 
 import java.util.ArrayList;
@@ -29,6 +30,7 @@ public class CorvusEntities
 	{
 		event.getRegistry().registerAll(EntityEntryBuilder.create().entity(EntityCrow.class).spawn(EnumCreatureType.CREATURE, 5, 2, 6, BiomeDictionary.getBiomes(BiomeDictionary.Type.CONIFEROUS)).egg(0x3d3d3d, 0x4c4c4c).name("Crow").id(new ResourceLocation(Corvus.MODID, "crow"), ID++).tracker(80, 3, true).build());
 		event.getRegistry().registerAll(EntityEntryBuilder.create().entity(EntityFamiliar.class).name("Familiar").id(new ResourceLocation(Corvus.MODID, "familiar"), ID++).tracker(80, 3, true).build());
+		event.getRegistry().registerAll(EntityEntryBuilder.create().entity(EntityNagual.class).name("Nagual").id(new ResourceLocation(Corvus.MODID, "nagual"), ID++).tracker(80, 3, true).egg(0x4f422e, 0xd9c19c).build());
 
 		List<Biome> wendigoBiomes = new ArrayList<>();
 		wendigoBiomes.addAll(BiomeDictionary.getBiomes(BiomeDictionary.Type.FOREST));

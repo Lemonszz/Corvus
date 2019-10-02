@@ -9,9 +9,11 @@ import net.minecraft.world.World;
 import party.lemons.corvus.Corvus;
 import party.lemons.corvus.block.BlockBreathingTulip;
 import party.lemons.corvus.block.tilentity.TileEntityBreathingTulip;
+import party.lemons.corvus.capability.progression.ProgressionUtil;
 import party.lemons.corvus.capability.spirit.SpiritUtil;
 import party.lemons.corvus.handler.AdvancementHandler;
 import party.lemons.corvus.handler.EffectHandler;
+import party.lemons.corvus.init.CorvusProgression;
 import party.lemons.corvus.init.CorvusSounds;
 
 public class RitualAwaken extends Ritual
@@ -31,6 +33,8 @@ public class RitualAwaken extends Ritual
 
 		if(!world.isRemote)
 		{
+			ProgressionUtil.tryUnlockProgression(player, CorvusProgression.AWAKEN);
+
 			for(int _xx = -2; _xx < 2; _xx++)
 			{
 				for(int _zz = -2; _zz < 2; _zz++)
@@ -42,7 +46,6 @@ public class RitualAwaken extends Ritual
 						tulip.setDamage(0);
 						float pitchOffset = (world.rand.nextFloat() / 5) * (world.rand.nextBoolean() ? 1 : -1);
 						world.playSound(null, pos, CorvusSounds.ITEM_SUMMON, SoundCategory.BLOCKS, 1F, 1F + pitchOffset);
-
 						EffectHandler.performEffect(EffectHandler.STUNNING_DAHLIA, checkPos, world);
 					}
 
